@@ -11,11 +11,7 @@ using System.Linq;
 using UnityEditor;
 #endif
 
-namespace Coffee.UIExtensions
-{
-	/// <summary>
-	/// UIEffect.
-	/// </summary>
+
 	[ExecuteInEditMode]
 	[DisallowMultipleComponent]
 	public class ShinyEffectForUGUI : BaseMeshEffect
@@ -23,15 +19,9 @@ namespace Coffee.UIExtensions
 	, ISerializationCallbackReceiver
 #endif
 	{
-		//################################
-		// Constant or Static Members.
-		//################################
 		public const string shaderName = "UI/Hidden/UI-Effect-Shiny";
 
 
-		//################################
-		// Serialize Members.
-		//################################
 		[SerializeField][Range(0, 1)] float m_Location = 0;
 		[SerializeField][Range(0, 1)] float m_Width = 0.25f;
 		[SerializeField][Range(0.01f, 1)] float m_Softness = 1f;
@@ -42,12 +32,6 @@ namespace Coffee.UIExtensions
 		[SerializeField] Material m_EffectMaterial;
 
 
-		//################################
-		// Public Members.
-		//################################
-		/// <summary>
-		/// Graphic affected by the UIEffect.
-		/// </summary>
 		new public Graphic graphic { get { return base.graphic; } }
 
 		/// <summary>
@@ -294,4 +278,3 @@ namespace Coffee.UIExtensions
 			}
 		}
 	}
-}

@@ -21,6 +21,11 @@ public class MasterDataManager : MonoBehaviour
         allStageData.SetStageDatas(allData);
     }
 
+    public int GetAllStageCount()
+    {
+        return allStageData.GetAllStageDataCount();
+    }
+
     public StageData GetStageData(int num)
     {
         Debug.Log("ステージデータ取得" + num);

@@ -61,5 +61,11 @@ public class Define
         public Tile[] tile;
     }
 
-   
+
+
+    //プレイヤーデータ
+    //最新ステージ（クエスト）番号
+    public const string NEW_STAGE_KEY = "NEW_STAGE_KEY";
+    //ハイスコア
+    public const string HIGH_SCORE_FORMAT_KEY = "HIGH_SCORE_STAGE{0}";
 }
