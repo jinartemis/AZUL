@@ -17,6 +17,8 @@ public class QuestManager : MonoBehaviour
     [SerializeField, Header("クエストボタン親")]
     private GameObject questButtonParent;
 
+    private List<Button> questButtonList = new List<Button>();
+
     [SerializeField]
     GameDataManager gameDataManager;
 
@@ -64,14 +66,30 @@ public class QuestManager : MonoBehaviour
         nextQuestPanelButton = Find(HierarchyPath_Home.UICanvas._QuestPanel_QuestListBack_NextQuestPanelButton).AddComponent<Button>();
         nextQuestPanelButton.onClick.RemoveAllListeners();
         nextQuestPanelButton.onClick.AddListener(() => {
-            //ステージ番号を最新のステージのものに設定する
-            var allStageDatas = Resources.LoadAll<StageData>(STAGE_DATA_FOLDER_PATH);
-            gameDataManager.GetGameData().nowStageNumber = allStageDatas.Length-1;
+            //ステージ番号をプレイ可能な最新ステージのものに設定する
+            gameDataManager.GetGameData().nowStageNumber = PlayerPrefs.GetInt(Define.NEW_STAGE_KEY, 0);
             BeginButton();
         });
         //questPanel.SetActive(false);
     }
 
+    public void ShowQuestPanel(bool show)
+    {
+        //表示されるときにステージボタンのOnOff設定をおこなう
+       StageButtonEnable();
+        questPanel.SetActive(show);
+    }
+
+    private void StageButtonEnable()
+    {
+        int newStage = PlayerPrefs.GetInt(Define.NEW_STAGE_KEY, 0);
+        //進んでいるステージまでしかボタンを有効にしない．
+        for(int q = 0; q < questButtonList.Count; q++)
+        {
+            questButtonList[q].image.color = (q <= newStage) ? Color.white : Color.gray;
+            questButtonList[q].enabled = (q <= newStage);
+        }
+    }
 
     //クエストボタン生成
     void MakeQuestButtons()
@@ -87,22 +105,22 @@ public class QuestManager : MonoBehaviour
 
             qb.transform.GetChild(0).GetComponent<Text>().text = string.Format("{0}", stageNum);
 
-            qb.GetComponent<Button>().onClick.AddListener(()=> {
+            Button qButton = qb.GetComponent<Button>();
+            qButton.onClick.AddListener(()=> {
                 soundManager.PlaySE(SoundData.SE.Select);
                 gameDataManager.GetGameData().nowStageNumber = stageNum;
 
                 //詳細パネル表示　
-                ShowInfoPanel(true, allStageDatas[stageNum]);
-                
-
+                ShowInfoPanel(true,allStageDatas[stageNum], stageNum);
             });
+            questButtonList.Add(qButton); ;
         }
     }
 
-    public void ShowInfoPanel(bool show, StageData data = null)
+    public void ShowInfoPanel(bool show, StageData data = null, int stageNumber = 0)
     {
         //クエストパネル表示
-        questInfoUI.ShowQuestInfo(show, data);
+        questInfoUI.ShowQuestInfo(show, data, stageNumber);
         //questInfoPanel.SetActive(show);
     }
 

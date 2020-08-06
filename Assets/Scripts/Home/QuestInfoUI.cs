@@ -33,7 +33,7 @@ namespace ReoGames
         private GemListPanel[] gemListPanels;
 
         //パネル非表示ボタン
-        private Button closeQuestPanelButton;
+        private Button closeQuestInfoPanelButton;
         //ゲーム開始ボタン
         private Button startButton;
 
@@ -75,22 +75,36 @@ namespace ReoGames
                     gemListPanels[h].gems[j] = gemListContent.GetChild(h).Find("list").GetChild(j).GetComponent<Image>();
                 }
             }
-            closeQuestPanelButton = Find(HierarchyPath_Home.UICanvas._QuestPanel_QuestInfoPanel_HideInfoPanelButton).AddComponent<Button>();
+            closeQuestInfoPanelButton = Find(HierarchyPath_Home.UICanvas._QuestPanel_QuestInfoPanel_HideInfoPanelButton).AddComponent<Button>();
             startButton = Find(HierarchyPath_Home.UICanvas._QuestPanel_QuestInfoPanel_StartGameButton).AddComponent<Button>();
 
             //Button Settings
-            closeQuestPanelButton.onClick.RemoveAllListeners();
-            closeQuestPanelButton.onClick.AddListener(()=> { QuestManager.instance.ShowInfoPanel(false); });
+            closeQuestInfoPanelButton.onClick.RemoveAllListeners();
+            closeQuestInfoPanelButton.onClick.AddListener(()=> { QuestManager.instance.ShowInfoPanel(false); });
             startButton.onClick.RemoveAllListeners();
             startButton.onClick.AddListener(() => { QuestManager.instance.BeginButton(); });
         }
 
-        public void ShowQuestInfo(bool show, StageData data = null)
+        public void ShowQuestInfo(bool show, StageData data = null, int stageNumber = 0)
         {
             if (data != null)
             {
                 //ステージ情報更新
                 var sData = data.GetStageData();
+                questLabel.text = $"Stage{stageNumber}";// sData.stageName;
+                int highScore = PlayerPrefs.GetInt(string.Format(Define.HIGH_SCORE_FORMAT_KEY, stageNumber), 0);
+                int star3Score = sData.star3_score;
+                int star2Score = sData.star2_score;
+                int star1Score = sData.star1_score;
+                int starCount = 0;
+                if (highScore > star3Score) { starCount = 3; }
+                else if (highScore > star2Score) { starCount = 2; }
+                else if (highScore > star1Score) { starCount = 1; }
+                else { starCount = 0; }
+                for(int i = 0; i < 3; i++)
+                {
+                    stars[i].color = (i < starCount) ? Color.white : Color.gray;
+                }
                 //完成図
                 for (int l = 0; l < sData.sheet[0].lane.Length; l++)
                 {
@@ -106,7 +120,6 @@ namespace ReoGames
                 //プールリスト
                 for (int p = 0; p < sData.pool.Length; p++)
                 {
-                    Debug.Log(p);
                     gemListPanels[p].waveLabel.text = $"Wave{p}";
                     for(int g = 0; g < sData.pool[p].tile.Length; g++)
                     {

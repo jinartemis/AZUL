@@ -67,7 +67,7 @@ namespace ReoGames
             {
                 case Panel.Puzzle:
                     {
-                        questPanel.SetActive(show);
+                        questManager.ShowQuestPanel(show);
                     }
                     break;
 

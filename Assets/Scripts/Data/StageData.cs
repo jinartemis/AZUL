@@ -9,6 +9,9 @@ public class StageData : ScriptableObject
     [System.Serializable]
     public struct Stage
     {
+        [SerializeField, Header("ステージ名")]
+        public string stageName;
+
         [SerializeField, Header("BGM")]
         public AudioClip bgm;
 
