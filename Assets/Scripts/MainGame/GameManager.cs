@@ -132,9 +132,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        //広告表示
-        AdManager.instance.RequestBanner(true);
-
         Init();
 
         //ステージデータ取得
@@ -150,6 +147,15 @@ public class GameManager : MonoBehaviour
         MakeCompleteLineEffect();
 
         LoadUI();
+    }
+
+    private void Start()
+    {
+        //広告表示
+        AdManager.instance.RequestBanner(true);
+
+        //BGM
+        SoundManager.instance.PlayBGM(SoundData.BGM.Game);
     }
 
     void Init()
@@ -235,25 +241,25 @@ public class GameManager : MonoBehaviour
                     case 0:
                         tileInfo[laneNum, tileNum].obj = tiles0[tileNum].gameObject;
                         tiles0[tileNum].onClick.AddListener(() => { TileButton(laneNum, tileNum); });
-                        tiles0[tileNum].GetComponent<Image>().sprite = masterDataManager.tileImage[(int)tileInfo[laneNum, tileNum].type];
+                        tiles0[tileNum].GetComponent<Image>().sprite = masterDataManager.GetTileImages()[(int)tileInfo[laneNum, tileNum].type];
                         break;
 
                     case 1:
                         tileInfo[laneNum, tileNum].obj = tiles1[tileNum].gameObject;
                         tiles1[tileNum].onClick.AddListener(() => { TileButton(laneNum, tileNum); });
-                        tiles1[tileNum].GetComponent<Image>().sprite = masterDataManager.tileImage[(int)tileInfo[laneNum, tileNum].type];
+                        tiles1[tileNum].GetComponent<Image>().sprite = masterDataManager.GetTileImages()[(int)tileInfo[laneNum, tileNum].type];
                         break;
 
                     case 2:
                         tileInfo[laneNum, tileNum].obj = tiles2[tileNum].gameObject;
                         tiles2[tileNum].onClick.AddListener(() => { TileButton(laneNum, tileNum); });
-                        tiles2[tileNum].GetComponent<Image>().sprite = masterDataManager.tileImage[(int)tileInfo[laneNum, tileNum].type];
+                        tiles2[tileNum].GetComponent<Image>().sprite = masterDataManager.GetTileImages()[(int)tileInfo[laneNum, tileNum].type];
                         break;
 
                     case 3:
                         tileInfo[laneNum, tileNum].obj = tiles3[tileNum].gameObject;
                         tiles3[tileNum].onClick.AddListener(() => { TileButton(laneNum, tileNum); });
-                        tiles3[tileNum].GetComponent<Image>().sprite = masterDataManager.tileImage[(int)tileInfo[laneNum, tileNum].type];
+                        tiles3[tileNum].GetComponent<Image>().sprite = masterDataManager.GetTileImages()[(int)tileInfo[laneNum, tileNum].type];
                         break;
                 }
             }
@@ -283,7 +289,7 @@ public class GameManager : MonoBehaviour
                 if(tileInfo[laneNum, i].filled == false)
                 {
                     movePos.Add(new int[] { laneNum, i });
-                    Debug.Log("ddd"+ tileInfo[laneNum, i].type);
+                    //Debug.Log("ddd"+ tileInfo[laneNum, i].type);
                 }
             }
         }
@@ -321,7 +327,7 @@ public class GameManager : MonoBehaviour
                 //埋まった
                 tileInfo[movePos[posNum][0], movePos[posNum][1]].filled = true;
 
-                soundManager.PlaySE(SoundData.SE.Select);
+                SoundManager.instance.PlaySE(SoundData.SE.Select);
 
                 posNum++;
             }
@@ -329,6 +335,7 @@ public class GameManager : MonoBehaviour
 
         if(posNum == 0)
         {
+            SoundManager.instance.PlaySE(SoundData.SE.Error);
             Debug.LogError("移動できるものがない");
             return;
         }
@@ -513,10 +520,10 @@ public class GameManager : MonoBehaviour
                     tileInfo[i, t] = stageData.GetStageData().sheet[sheetNum].lane[i].tile[t];
                     switch (i)
                     {
-                        case 0: { clearUI.lane0Gem[t].sprite = masterDataManager.tileImage[(int)tileInfo[i, t].type]; }break;
-                        case 1: { clearUI.lane1Gem[t].sprite = masterDataManager.tileImage[(int)tileInfo[i, t].type]; } break;
-                        case 2: { clearUI.lane2Gem[t].sprite = masterDataManager.tileImage[(int)tileInfo[i, t].type]; } break;
-                        case 3: { clearUI.lane3Gem[t].sprite = masterDataManager.tileImage[(int)tileInfo[i, t].type]; } break;
+                        case 0: { clearUI.lane0Gem[t].sprite = masterDataManager.GetTileImages()[(int)tileInfo[i, t].type]; }break;
+                        case 1: { clearUI.lane1Gem[t].sprite = masterDataManager.GetTileImages()[(int)tileInfo[i, t].type]; } break;
+                        case 2: { clearUI.lane2Gem[t].sprite = masterDataManager.GetTileImages()[(int)tileInfo[i, t].type]; } break;
+                        case 3: { clearUI.lane3Gem[t].sprite = masterDataManager.GetTileImages()[(int)tileInfo[i, t].type]; } break;
                     }
                 }
             }
@@ -618,7 +625,7 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < stageData.GetStageData().pool[waveNum + 1].tile.Length; i++)
             {
                 Define.TileType type = stageData.GetStageData().pool[waveNum + 1].tile[i].type;
-                nextTileImages[i].sprite = masterDataManager.tileImage[(int)type];
+                nextTileImages[i].sprite = masterDataManager.GetTileImages()[(int)type];
             }
         }
 
@@ -632,7 +639,7 @@ public class GameManager : MonoBehaviour
 
             poolTilesInfo[i] = stageData.GetStageData().pool[waveNum].tile[i];
             poolTilesInfo[i].obj = poolTileImages[i].gameObject;
-            poolTileImages[i].sprite = masterDataManager.tileImage[(int)poolTilesInfo[i].type];
+            poolTileImages[i].sprite = masterDataManager.GetTileImages()[(int)poolTilesInfo[i].type];
 
             yield return new WaitForSeconds(makeSpan);
         }

@@ -9,6 +9,7 @@ public class SoundData : ScriptableObject
     {
         Select,
         Point,
+        Error,
     }
 
     public enum BGM

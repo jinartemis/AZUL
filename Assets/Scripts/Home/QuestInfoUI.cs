@@ -37,6 +37,9 @@ namespace ReoGames
         //ゲーム開始ボタン
         private Button startButton;
 
+        [Header("シート番号")]
+        private int sheetNumber = 0;
+
         public void Initialize()
         {
             LoadUI();
@@ -65,6 +68,7 @@ namespace ReoGames
             gemListPanels = new GemListPanel[gemListContent.childCount];
             for(int h = 0; h < gemListPanels.Length; h++)
             {
+                gemListPanels[h].waveLabel = gemListContent.GetChild(h).Find("waveLabel").GetComponent<Text>();
                 gemListPanels[h].gems = new Image[gemListContent.GetChild(h).Find("list").childCount];
                 for(int j = 0; j < gemListPanels[h].gems.Length; j++)
                 {
@@ -87,11 +91,29 @@ namespace ReoGames
             {
                 //ステージ情報更新
                 var sData = data.GetStageData();
+                //完成図
                 for (int l = 0; l < sData.sheet[0].lane.Length; l++)
                 {
                     var tile = sData.sheet[0].lane[l].tile;
+                    for (int t = 0; t < tile.Length; t++)
+                    {
+                        int gemType = (int)sData.sheet[sheetNumber].lane[l].tile[t].type;
+                        var gemImage = MasterDataManager.instance.GetTileImages()[gemType];
+                        lanes[l].gems[t].sprite = gemImage;
+                    }
                 }
 
+                //プールリスト
+                for (int p = 0; p < sData.pool.Length; p++)
+                {
+                    Debug.Log(p);
+                    gemListPanels[p].waveLabel.text = $"Wave{p}";
+                    for(int g = 0; g < sData.pool[p].tile.Length; g++)
+                    {
+                        int gemType2 = (int)sData.pool[p].tile[g].type;
+                        gemListPanels[p].gems[g].sprite = MasterDataManager.instance.GetTileImages()[gemType2];
+                    }
+                }
             }
             this.gameObject.SetActive(show);
         }

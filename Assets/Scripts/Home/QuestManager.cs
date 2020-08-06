@@ -88,7 +88,7 @@ public class QuestManager : MonoBehaviour
             qb.transform.GetChild(0).GetComponent<Text>().text = string.Format("{0}", stageNum);
 
             qb.GetComponent<Button>().onClick.AddListener(()=> {
-                soundManager.PlaySE(SoundData.SE.Point);
+                soundManager.PlaySE(SoundData.SE.Select);
                 gameDataManager.GetGameData().nowStageNumber = stageNum;
 
                 //詳細パネル表示　
@@ -109,6 +109,7 @@ public class QuestManager : MonoBehaviour
     public void BeginButton()
     {
         loadingPanel.SetActive(true);
+        SoundManager.instance.PlaySE(SoundData.SE.Select);
         StartCoroutine(BeginGame());
 
     }

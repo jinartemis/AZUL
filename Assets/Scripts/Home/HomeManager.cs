@@ -24,5 +24,8 @@ public class HomeManager : MonoBehaviour
         //広告表示
         AdManager.instance.RequestBanner(true);
 #endif
-        }
+
+        //BGM
+        SoundManager.instance.PlayBGM(SoundData.BGM.Home);
+     }
 }
