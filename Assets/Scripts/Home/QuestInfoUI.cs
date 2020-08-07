@@ -87,6 +87,8 @@ namespace ReoGames
 
         public void ShowQuestInfo(bool show, StageData data = null, int stageNumber = 0)
         {
+            QuestManager.instance.ShowQuestListPanelButton(!show);
+
             if (data != null)
             {
                 //ステージ情報更新

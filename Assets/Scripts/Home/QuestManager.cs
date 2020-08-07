@@ -139,4 +139,10 @@ public class QuestManager : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
+
+    public void ShowQuestListPanelButton(bool show)
+    {
+        nextQuestPanelButton.gameObject.SetActive(show);
+        hideQuestPanelButton.gameObject.SetActive(show);
+    }
 }

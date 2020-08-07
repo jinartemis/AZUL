@@ -10,6 +10,8 @@ namespace ReoGames
 {
     public class HomeUI : MonoBehaviour
     {
+        public static HomeUI instance;
+
         private GameObject questPanel;
         private GameObject shopPanel;
         private GameObject settingPanel;
@@ -28,6 +30,14 @@ namespace ReoGames
 
         private void Awake()
         {
+            if(instance == null)
+            {
+                instance = this;
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
             LoadUI();
         }
 
@@ -68,6 +78,8 @@ namespace ReoGames
                 case Panel.Puzzle:
                     {
                         questManager.ShowQuestPanel(show);
+                        //ホーム画面ボタン3種消す
+                        ShowHomeUIButtons(!show);
                     }
                     break;
 
@@ -85,6 +97,23 @@ namespace ReoGames
             }
         }
        
+
+        public void ShowHomeUIButtons(bool show)
+        {
+            //後でUIアニメーションつける？
+            if (show == true)
+            {
+                puzzleButton.gameObject.SetActive(true);
+                shopButton.gameObject.SetActive(true);
+                settingsButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                puzzleButton.gameObject.SetActive(false);
+                shopButton.gameObject.SetActive(false);
+                settingsButton.gameObject.SetActive(false);
+            }
+        }
     }
 }
 
