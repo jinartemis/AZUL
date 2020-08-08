@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Define
+public partial class Define
 {
     //タイルの種類
     [System.Serializable]

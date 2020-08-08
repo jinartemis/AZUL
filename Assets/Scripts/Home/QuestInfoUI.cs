@@ -25,11 +25,14 @@ namespace ReoGames
         }
         private Lane[] lanes;
         //画面下Waveジェムリスト
+        [System.Serializable]
         public struct GemListPanel
         {
+            public GameObject panel;
             public Text waveLabel;
             public Image[] gems;
         }
+        [SerializeField]
         private GemListPanel[] gemListPanels;
 
         //パネル非表示ボタン
@@ -39,6 +42,8 @@ namespace ReoGames
 
         [Header("シート番号")]
         private int sheetNumber = 0;
+        //プール１００まで対応
+        private int poolCount = 100;
 
         public void Initialize()
         {
@@ -65,9 +70,17 @@ namespace ReoGames
                 }
             }
             var gemListContent = Find(HierarchyPath_Home.UICanvas._QuestPanel_QuestInfoPanel_GemListScrollView_Viewport_GemListScrollViewContent).transform;
-            gemListPanels = new GemListPanel[gemListContent.childCount];
+            gemListPanels = new GemListPanel[poolCount];
+            var poolPanelPrefab = gemListContent.transform.GetChild(0).gameObject;
+            for(int k = 1; k < poolCount; k++)
+            {
+                //poolリストパネル複製
+                Instantiate(poolPanelPrefab, gemListContent.transform);
+            }
+
             for(int h = 0; h < gemListPanels.Length; h++)
             {
+                gemListPanels[h].panel = gemListContent.GetChild(h).gameObject;
                 gemListPanels[h].waveLabel = gemListContent.GetChild(h).Find("waveLabel").GetComponent<Text>();
                 gemListPanels[h].gems = new Image[gemListContent.GetChild(h).Find("list").childCount];
                 for(int j = 0; j < gemListPanels[h].gems.Length; j++)
@@ -125,6 +138,8 @@ namespace ReoGames
                         gemListPanels[p].gems[g].sprite = MasterDataManager.instance.GetTileImages()[gemType2];
                     }
                 }
+                gemListPanels.ToList().Select((item, index) => new { index, item }).ToList()
+                                                               .ForEach(value => value.item.panel.SetActive(value.index < sData.pool.Length));
             }
             this.gameObject.SetActive(show);
         }

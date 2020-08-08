@@ -237,5 +237,5 @@ MonoBehaviour:
       - type: 5
         filled: 0
         obj: {fileID: 0}
-  mobText_jp: "\uFF1D"
+  mobText_jp: 
   mobText_en: 
