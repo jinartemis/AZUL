@@ -32,9 +32,19 @@ public class StageData : ScriptableObject
     [SerializeField]
     private Stage stage;
 
+    [Header("モブテキストJP")]
+    public string mobText_jp;
+
+    [Header("モブテキストEN")]
+    public string mobText_en;
 
     public Stage GetStageData()
     {
         return stage;
+    }
+
+    public void SetStageData(Stage data)
+    {
+        stage = data;
     }
 }

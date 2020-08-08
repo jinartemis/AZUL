@@ -68,6 +68,11 @@
 			public const string _PoolPanel_nextTilesPanel_nextTiles_nextTile2 = "GameCanvas/PoolPanel/nextTilesPanel/nextTiles/nextTile2";
 			public const string _PoolPanel_nextTilesPanel_nextTiles_nextTile3 = "GameCanvas/PoolPanel/nextTilesPanel/nextTiles/nextTile3";
 			public const string _PoolPanel_nextTilesPanel_nextTiles_nextTile4 = "GameCanvas/PoolPanel/nextTilesPanel/nextTiles/nextTile4";
+			public const string _ChainTextParent = "GameCanvas/ChainTextParent";
+			public const string _ChainTextParent_ChainText0 = "GameCanvas/ChainTextParent/ChainText0";
+			public const string _ChainTextParent_ChainText1 = "GameCanvas/ChainTextParent/ChainText1";
+			public const string _ChainTextParent_ChainText2 = "GameCanvas/ChainTextParent/ChainText2";
+			public const string _ChainTextParent_ChainText3 = "GameCanvas/ChainTextParent/ChainText3";
 			public const string _CFX3_MagicAura_B_Runic = "GameCanvas/CFX3_MagicAura_B_Runic";
 			public const string _CFX3_MagicAura_B_Runic_CFX3Spikes = "GameCanvas/CFX3_MagicAura_B_Runic/CFX3 Spikes";
 			public const string _CFX3_MagicAura_B_Runic_CFX3Stars = "GameCanvas/CFX3_MagicAura_B_Runic/CFX3 Stars";

@@ -8,12 +8,9 @@ public class ResultManager : MonoBehaviour
     [SerializeField]
     private GameObject LockPanel;
 
-    [SerializeField]
-    private SoundManager soundManager;
-
     public void HomeButton()
     {
-        soundManager.PlaySE(SoundData.SE.Select);
+        SoundManager.instance.PlaySE(SoundData.SE.Select);
 
         LockPanel.SetActive(true);
         StartCoroutine(GoHome());

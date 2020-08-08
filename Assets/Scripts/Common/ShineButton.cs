@@ -5,6 +5,8 @@ using UnityEngine;
 public class ShineButton : MonoBehaviour
 {
     private ShinyEffectForUGUI shine;
+    [SerializeField, Header("開始時間ディレイ")]
+    private float delayTime = 0;
     private void Awake()
     {
         shine = this.GetComponent<ShinyEffectForUGUI>();
@@ -16,7 +18,14 @@ public class ShineButton : MonoBehaviour
         {
             shine = this.GetComponent<ShinyEffectForUGUI>();
         }
+        StartCoroutine(FirstPlay());
+    }
+
+    IEnumerator FirstPlay()
+    {
+        yield return new WaitForSeconds(delayTime);
         shine.Play();
+        delta = -delayTime;
     }
 
     float delta = 0;

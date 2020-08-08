@@ -6,8 +6,9 @@ using DG.Tweening;
 using System.Linq;
 using static UnityEngine.GameObject;
 using Reo;
+using ReoGames;
 
-public class GameManager : MonoBehaviour
+public partial class GameManager : MonoBehaviour
 {
 
     [SerializeField, Header("ステージ情報 実行時取得")]
@@ -78,9 +79,6 @@ public class GameManager : MonoBehaviour
     [SerializeField, Header("失敗フラグ")]
     bool miss;
 
-    [SerializeField]
-    private SoundManager soundManager;
-
     [SerializeField, Header("スコアテキスト")]
     private Text scoreText;
 
@@ -134,6 +132,11 @@ public class GameManager : MonoBehaviour
     {
         Init();
 
+        LoadUI();
+    }
+
+    private void Start()
+    {
         //ステージデータ取得
         stageData = masterDataManager.GetStageData(gameData.nowStageNumber);
 
@@ -144,13 +147,8 @@ public class GameManager : MonoBehaviour
         StartCoroutine(MakePoolTiles(0));
 
         //エフェクト生成
-        MakeCompleteLineEffect();
+        MakeEffects();
 
-        LoadUI();
-    }
-
-    private void Start()
-    {
         //広告表示
         AdManager.instance.RequestBanner(true);
 
@@ -432,7 +430,7 @@ public class GameManager : MonoBehaviour
             //ゲームオーバー
             Debug.LogError("ゲームオーバー！");
             state = State.Result;
-            soundManager.PlayBGM(SoundData.BGM.Failed);
+            SoundManager.instance.PlayBGM(SoundData.BGM.Failed);
             ShowResultPanel(clear:false);
         }
         else
@@ -451,7 +449,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(delayForShowClear);
 
         state = State.Result;
-        soundManager.PlayBGM(SoundData.BGM.Clear);
+        SoundManager.instance.PlayBGM(SoundData.BGM.Clear);
         ShowResultPanel(clear: true);
         //最新ステージ番号更新
         var allStageCount = masterDataManager.GetAllStageCount();
@@ -486,14 +484,7 @@ public class GameManager : MonoBehaviour
             int star1Score = stageData.GetStageData().star1_score;
             int starCount = 0;
             //スコア表記/////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //★３
-            if (nowScore > star3Score) { starCount = 3; }
-            //★２
-            else if (nowScore > star2Score) { starCount = 2; }
-            //★１
-            else if (nowScore > star1Score) { starCount = 1; }
-            //★０
-            else { }
+            starCount = ScoreChecker.GetStarScore(nowScore, star3Score, star2Score, star1Score);
 
             for (int i = 0; i < 3; i++)
             {
@@ -573,6 +564,7 @@ public class GameManager : MonoBehaviour
         //ポイントイメージの色を1に
         lanePointImage[laneNum].color = Color.white;
 
+        int effectCount = 0;
         for (int k = laneNum; k < 4; k++)
         {
             //エフェクト
@@ -591,12 +583,13 @@ public class GameManager : MonoBehaviour
                     //エフェクト生成
                     //var ef = Instantiate(fitEffect, tileInfo[k, t].obj.transform);
                 }
-                StartCoroutine(PlayCompleteEffect(k, k-laneNum));
+                StartCoroutine(PlayCompleteEffect(k, k-laneNum, effectCount));
+                effectCount++;
                 gameData.nowScore += stageData.GetStageData().sheet[0].lane[k].point;
             }
         }
 
-        soundManager.PlaySE(SoundData.SE.Point);
+        SoundManager.instance.PlaySE(SoundData.SE.Point);
 
         scoreText.text = "score:" + gameData.nowScore;
         
@@ -645,45 +638,5 @@ public class GameManager : MonoBehaviour
         }
         state = State.Idle;
     }
-
-    private List<List<GameObject>> completeEffect = new List<List<GameObject>>();
-    //ラインが完成した時のエフェクトをキャッシュ
-    private void MakeCompleteLineEffect()
-    {
-        for(int x = 0; x < 4; x++)
-        {               
-            var list = new List<GameObject>();
-            for(int y = 0; y < 4; y++)
-            {
-                var ef = Instantiate(fitEffect, tileInfo[x, y].obj.transform);
-                ef.SetActive(false);
-                list.Add(ef);
-            }
-            completeEffect.Add(list);
-        }
-    }
-
-    IEnumerator PlayCompleteEffect(int line, float delay)
-    {
-        Debug.Log("Playcompleteeffect " + line);
-        delay *= .1f;
-        yield return new WaitForSeconds(delay);
-
-        //エフェクト表示
-        var efList = completeEffect.Where((item, index) => index == line).FirstOrDefault().ToList();
-        foreach(var ef in efList)
-        {
-            ef.SetActive(false);
-            ef.SetActive(true);
-        }
-
-        yield return new WaitForSeconds(2.0f);
-        //エフェクトを再度非表示に
-        foreach (var ef in efList)
-        {
-            ef.SetActive(false);
-        }
-    }
-
 }
 

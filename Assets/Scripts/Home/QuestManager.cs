@@ -22,9 +22,6 @@ public class QuestManager : MonoBehaviour
     [SerializeField]
     GameDataManager gameDataManager;
 
-    [SerializeField]
-    private SoundManager soundManager;
-
     [SerializeField, Header("LoadingPanel")]
     private GameObject loadingPanel;
 
@@ -107,7 +104,7 @@ public class QuestManager : MonoBehaviour
 
             Button qButton = qb.GetComponent<Button>();
             qButton.onClick.AddListener(()=> {
-                soundManager.PlaySE(SoundData.SE.Select);
+                SoundManager.instance.PlaySE(SoundData.SE.Select);
                 gameDataManager.GetGameData().nowStageNumber = stageNum;
 
                 //詳細パネル表示　

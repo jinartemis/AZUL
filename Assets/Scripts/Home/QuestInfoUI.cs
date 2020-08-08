@@ -98,11 +98,7 @@ namespace ReoGames
                 int star3Score = sData.star3_score;
                 int star2Score = sData.star2_score;
                 int star1Score = sData.star1_score;
-                int starCount = 0;
-                if (highScore > star3Score) { starCount = 3; }
-                else if (highScore > star2Score) { starCount = 2; }
-                else if (highScore > star1Score) { starCount = 1; }
-                else { starCount = 0; }
+                int starCount = ScoreChecker.GetStarScore(highScore, star3Score, star2Score, star1Score);
                 for(int i = 0; i < 3; i++)
                 {
                     stars[i].color = (i < starCount) ? Color.white : Color.gray;
