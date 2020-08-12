@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0af4210b062f2479cc460f3b8c0f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gemListPanels: []
 --- !u!1 &110184141
 GameObject:
   m_ObjectHideFlags: 0
@@ -3390,25 +3391,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
   - charaSprite: {fileID: 21300000, guid: ce7f60f357d9747e8a00fb28a4c04d52, type: 3}
-    serihu_Jp: "\u901A\u5E38"
+    serihu_Jp: "\u4ECA\u65E5\u3082\u4E00\u65E5\u9811\u5F35\u308D\u3046\u306A\uFF01"
     serihu_En: Normal
   - charaSprite: {fileID: 21300000, guid: 19ec42ccc960c43b8afcd7ee2554fe2d, type: 3}
-    serihu_Jp: "\u7B11\u9854"
+    serihu_Jp: "\u4ECA\u65E5\u3082\u7D76\u597D\u8ABF\uFF01\u3058\u3083\u3093\u3058\u3083\u3093\u3084\u3063\u3061\u3083\u304A\uFF5E"
     serihu_En: Fun
   - charaSprite: {fileID: 21300000, guid: 30e907e15bd5c451eac86b1ae7528a62, type: 3}
-    serihu_Jp: "\u30CB\u30C3\u30B3\u30EA\u7B11\u9854"
+    serihu_Jp: "\u306F\u306F\u3063\u3001\u304A\u524D\u30B9\u30B2\u30FC\u3058\u3083\u3093\uFF01\u4FFA\u306B\u3082\u6559\u3048\u3066\uFF01"
     serihu_En: Happy
   - charaSprite: {fileID: 21300000, guid: 3a0767a7f8da74a9a9b331718411cf02, type: 3}
-    serihu_Jp: "\u7126\u308A"
+    serihu_Jp: "\u3042\uFF5E\u30DF\u30B9\u3063\u305F\u2026\u30DE\u30B8\u304B\uFF5E\u4FFA\u30C0\u30E1\u30C0\u30E1\u3058\u3083\u3093"
     serihu_En: Worry
   - charaSprite: {fileID: 21300000, guid: 42bb3093788a64ded8a3943b87904249, type: 3}
-    serihu_Jp: "\u9589\u3058"
+    serihu_Jp: "\u2026\u2026\u2026\u3002\u2026\u3046\u3093\uFF1F\u3042\u3001\u3054\u3081\u3093\u3002\u3069\u3046\u3084\u3063\u305F\u3089\u653B\u7565\u3067\u304D\u308B\u304B\u8003\u3048\u3066\u305F"
     serihu_En: Close
   - charaSprite: {fileID: 21300000, guid: 80102ffc084564c8ea7ae00ca66f82f7, type: 3}
-    serihu_Jp: "\u6012\u308A"
+    serihu_Jp: "\u306F\uFF1F\u58F2\u3089\u308C\u305F\u55A7\u5629\u306A\u3089\u8CB7\u3046\u307E\u3067\u3060!!"
     serihu_En: angry
   - charaSprite: {fileID: 21300000, guid: edce5e181c56a4208ae5bf2a2ebe34a8, type: 3}
-    serihu_Jp: "\u9A5A\u304D"
+    serihu_Jp: "\u2026\u3046\u3063\u308F\uFF01\u3073\u3063\u304F\u308A\u3057\u305F\u3001\u6025\u306B\u9A5A\u304B\u305B\u306A\u3044\u3067\u3088"
     serihu_En: surprise
   charaImage: {fileID: 981251941}
   hukidashi: {fileID: 2009357769}
@@ -6892,7 +6893,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 45
+    m_FontSize: 40
     m_FontStyle: 2
     m_BestFit: 0
     m_MinSize: 0

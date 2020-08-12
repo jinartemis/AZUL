@@ -71,7 +71,7 @@ namespace Reo
                     builder.AppendLine("{");
                     builder.AppendLine("\tpublic enum StageDataElement");
                     builder.AppendLine("\t{");
-                    var elements = line.Split(',').Select(str => EditorCommon.GetStrWithoutInvalidChars(str, new List<string> { " ", "_" })).ToList();
+                    var elements = line.Split(',').Select(str => EditorCommon.GetStrWithoutInvalidChars(str, new List<string> { "_" })).ToList();
                     foreach (var e in elements)
                     {
                         if (e == "") { continue; }; //何もないセルはスキップ
