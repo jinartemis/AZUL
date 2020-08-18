@@ -11,6 +11,7 @@ public class SoundData : ScriptableObject
         Point,
         Error,
         Cansel,
+        Touch,
     }
 
     public enum BGM

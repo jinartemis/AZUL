@@ -114,6 +114,42 @@ namespace ReoGames
                 settingsButton.gameObject.SetActive(false);
             }
         }
+
+        public void JumpToWeb()
+        {
+#if UNITY_ANDROID
+            string url = "";
+            if( Application.systemLanguage = SystemLanguage.Japanese)
+            {
+                url = "https://play.google.com/store/apps/developer?id=Reo+Games&hl=jp_JP";
+            }
+            else
+            {
+			    url = "https://play.google.com/store/apps/developer?id=Reo+Games&hl=en_US";
+            }
+			Application.OpenURL(url);
+#elif UNITY_IPHONE
+            string url = "https://itunes.apple.com/jp/developer/reo-komura/id1353284945";
+            Application.OpenURL(url);
+#else
+#endif
+        }
+
+        [SerializeField]
+        private GameObject creditPanel = default;
+        public void ShowCreditPanel(bool show)
+        {
+            //SE
+            if (show == true) { SoundManager.instance.PlaySE(SoundData.SE.Select); }
+            else { SoundManager.instance.PlaySE(SoundData.SE.Cansel); }
+            creditPanel.SetActive(show);
+        }
+
+        public void HideSettingPanel()
+        {
+            SoundManager.instance.PlaySE(SoundData.SE.Cansel);
+            settingPanel.SetActive(false);
+        }
     }
 }
 

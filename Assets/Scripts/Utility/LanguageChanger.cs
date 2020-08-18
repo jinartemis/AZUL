@@ -9,10 +9,10 @@ namespace ReoGames
     {
         private Text label;
 
-        [SerializeField, Header("日本語")]
+        [SerializeField, Header("日本語"), TextArea]
         private string jp;
 
-        [SerializeField, Header("English")]
+        [SerializeField, Header("English"), TextArea]
         private string en;
 
         private void Awake()

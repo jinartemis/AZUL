@@ -93,7 +93,10 @@ namespace ReoGames
 
             //Button Settings
             closeQuestInfoPanelButton.onClick.RemoveAllListeners();
-            closeQuestInfoPanelButton.onClick.AddListener(()=> { QuestManager.instance.ShowInfoPanel(false); });
+            closeQuestInfoPanelButton.onClick.AddListener(()=> {
+                SoundManager.instance.PlaySE(SoundData.SE.Cansel);
+                QuestManager.instance.ShowInfoPanel(false); 
+            });
             startButton.onClick.RemoveAllListeners();
             startButton.onClick.AddListener(() => { QuestManager.instance.BeginButton(); });
         }

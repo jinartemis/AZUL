@@ -551,7 +551,7 @@ public partial class GameManager : MonoBehaviour
         StartCoroutine(ReloadScene());
     }
 
-    private void RetryStage()
+    public  void RetryStage()
     {
         StartCoroutine(ReloadScene());
     }
@@ -785,6 +785,17 @@ public partial class GameManager : MonoBehaviour
         }
 
         yield return null;
+    }
+
+
+    [SerializeField]
+    private GameObject settingPanel = default;
+    public void ShowSettingPanel(bool show)
+    {
+        //SE
+        if (show == true) { SoundManager.instance.PlaySE(SoundData.SE.Select); }
+        else { SoundManager.instance.PlaySE(SoundData.SE.Cansel); }
+        settingPanel.SetActive(show);
     }
 }
 

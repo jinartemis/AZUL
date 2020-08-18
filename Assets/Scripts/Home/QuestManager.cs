@@ -59,7 +59,10 @@ public class QuestManager : MonoBehaviour
         homeUI = Find(HierarchyPath_Home.UICanvas.Root).GetComponent<HomeUI>();
         hideQuestPanelButton = Find(HierarchyPath_Home.UICanvas._QuestPanel_QuestListBack_HideQuestPanelButton).AddComponent<Button>();
         hideQuestPanelButton.onClick.RemoveAllListeners();
-        hideQuestPanelButton.onClick.AddListener(() => { homeUI.ShowPanel(false, HomeUI.Panel.Puzzle); });
+        hideQuestPanelButton.onClick.AddListener(() => {
+            SoundManager.instance.PlaySE(SoundData.SE.Cansel); 
+            homeUI.ShowPanel(false, HomeUI.Panel.Puzzle);
+        });
         nextQuestPanelButton = Find(HierarchyPath_Home.UICanvas._QuestPanel_QuestListBack_NextQuestPanelButton).AddComponent<Button>();
         nextQuestPanelButton.onClick.RemoveAllListeners();
         nextQuestPanelButton.onClick.AddListener(() => {

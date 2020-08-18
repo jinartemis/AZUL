@@ -38,19 +38,24 @@ namespace ReoGames
         private void Start()
         {
             hukidashiBasePos = hukidashi.transform.position;
-            TouchCharacter();
+            CharaAction();
             
         }
 
         public void TouchCharacter()
         {
-            //Debug.Log("TouchCharacter");
+            SoundManager.instance.PlaySE(SoundData.SE.Touch);
+            CharaAction();
+        }
+
+        private void CharaAction()
+        {
             //ランダムにセリフを表示、
             //表情変更
             int rnd = Random.Range(0, data.Length);
             charaImage.sprite = data[rnd].charaSprite;
 
-            hukidashi.transform.DOJump(endValue: hukidashiBasePos, jumpPower:.1f, numJumps:1, duration:.5f);
+            hukidashi.transform.DOJump(endValue: hukidashiBasePos, jumpPower: .1f, numJumps: 1, duration: .5f);
             switch (Application.systemLanguage)
             {
                 case SystemLanguage.Japanese:
@@ -65,7 +70,6 @@ namespace ReoGames
                     }
                     break;
             }
-
         }
     }
 }
