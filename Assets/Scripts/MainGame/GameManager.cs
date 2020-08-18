@@ -113,6 +113,13 @@ public partial class GameManager : MonoBehaviour
     "出現回数が少ないタイルは優先してはめよう！" ,
     "おしい！もう一回やったらいけるかも？"};
 
+    [SerializeField, Header("クラッシュ時表示スキップパネル")]
+    private GameObject skipPanel = default;
+
+    [SerializeField, Header("ネクスト表示")]
+    private GameObject nextBox = default;
+    [SerializeField, Header("残りプールリストパネル")]
+    private GameObject poolListPanel = default;
 
 
     public enum State
@@ -145,6 +152,9 @@ public partial class GameManager : MonoBehaviour
 
         //プールタイル生成
         StartCoroutine(MakePoolTiles(0));
+
+        //プールリスト作成
+        StartCoroutine(SetPoolList());
 
         //エフェクト生成
         MakeEffects();
@@ -442,6 +452,7 @@ public partial class GameManager : MonoBehaviour
         }
     }
 
+
     [SerializeField, Header("クリアパネルを表示するまでの時間")]
     private float delayForShowClear = 1.5f;
     private IEnumerator StageClear()
@@ -636,7 +647,144 @@ public partial class GameManager : MonoBehaviour
 
             yield return new WaitForSeconds(makeSpan);
         }
-        state = State.Idle;
+
+
+        //あてはめることができるタイルが一つ以上あるかどうかチェック
+        if(CheckCanPickTile(waveNum) == true)
+        {
+            state = State.Idle;
+        }
+        else
+        {
+            //あてはめられるものが一つもない．とりあえずPassの表示とともに作成したタイルを消滅させ，次のプールへ．
+            StartCoroutine(CrashPool());
+        }
+
+    }
+
+    //ピックできるタイルがあるかどうかチェックする
+    private bool CheckCanPickTile(int waveNum)
+    {
+        int tileCount = stageData.GetStageData().pool[waveNum].tile.Length;
+        bool canPick = false;
+        for(int i = 0; i < tileCount; i++)
+        {
+            var type = poolTilesInfo[i].type;
+            for(int _lane = 0; _lane < 4; _lane++)
+            {
+                for(int _tile = 0; _tile < 4; _tile++)
+                {
+                    if(tileInfo[_lane, _tile].type == type)
+                    {
+                        //一つでもピックできるタイルがあったらTrueに
+                        if(tileInfo[_lane, _tile].filled == false)
+                        {
+                            canPick = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        return canPick;
+    }
+
+    private IEnumerator CrashPool()
+    {
+        Debug.LogError("CrashPool");
+        SoundManager.instance.PlaySE(SoundData.SE.Error);
+
+        skipPanel.SetActive(true);
+
+        yield return new WaitForSeconds(2.0f);
+
+        for (int pn = 0; pn < 5; pn++)
+        {
+            Destroy(poolTileImages[pn].gameObject);
+        }
+
+        skipPanel.SetActive(false);
+        //次のプールを用意
+        gameData.nowWaveNumber++;
+        yield return new WaitForSeconds(.5f);
+        StartCoroutine(MakePoolTiles(gameData.nowWaveNumber));
+    }
+
+    public void ShowPoolListPanel(bool show)
+    {
+        //SE
+        if(show == true) { SoundManager.instance.PlaySE(SoundData.SE.Select); }
+        else { SoundManager.instance.PlaySE(SoundData.SE.Cansel); }
+
+        //既に済んだWaveのものは薄暗くする
+        if(show == true)
+        {
+            foreach(var panel in poolPanelList) { panel.shade.SetActive(false); }
+            var waveNum = gameData.nowWaveNumber;
+            var list = poolPanelList.Select((item, index) => new { item, index }).Where(value => value.index < waveNum).Select(element => element.item).ToList();
+            list.ForEach(item => item.shade.SetActive(true));
+        }
+
+        nextBox.SetActive(!show);
+        poolListPanel.SetActive(show);
+    }
+
+
+    [SerializeField, Header("プールリストスクロールビュー親")]
+    private GameObject poolListPanelContent = default;
+    [System.Serializable]
+    private struct GemListPanel
+    {
+        public GameObject obj;
+        public Text waveLabel;
+        public List<Image> gemList;
+        public GameObject shade;
+    }
+    [SerializeField]
+    private List<GemListPanel> poolPanelList = new List<GemListPanel>();
+    [SerializeField, Header("GemListPrefab")]
+    private GameObject gemListPrefab = default;
+
+    //プールリスト設定
+    private IEnumerator SetPoolList()
+    {
+        var pools = stageData.GetStageData().pool;
+        var childCount = poolListPanelContent.transform.childCount;
+        //プールの数だけプールパネルを生成する
+        for(int i = 0; i < pools.Length; i++)
+        {
+            if(i  >= childCount)
+            {
+                GemListPanel gemListPanel = new GemListPanel();
+                var panel = Instantiate(gemListPrefab, poolListPanelContent.transform);
+                gemListPanel.obj = panel;
+                gemListPanel.waveLabel = panel.transform.Find("waveLabel").GetComponent<Text>();
+                gemListPanel.waveLabel.text = $"wave{i+1}";
+                gemListPanel.gemList = new List<Image>();
+                var gemObjParent = panel.transform.Find("list");
+                foreach(Transform gemTrans in gemObjParent)
+                {
+                    gemListPanel.gemList.Add(gemTrans.gameObject.GetComponent<Image>());
+                }
+                gemListPanel.shade = panel.transform.Find("Shade").gameObject;
+                gemListPanel.shade.SetActive(false);
+                poolPanelList.Add(gemListPanel);
+            }
+        }
+
+        for (int p = 0; p < pools.Length; p++)
+        {
+            var pool = pools[p];
+            var tiles = pool.tile;
+            for (int t = 0; t < tiles.Length; t++)
+            {
+                var tile = tiles[t];
+                var sprite = masterDataManager.GetTileImages()[(int)tile.type];
+                poolPanelList[p].gemList[t].sprite = sprite;
+            }
+        }
+
+        yield return null;
     }
 }
 
