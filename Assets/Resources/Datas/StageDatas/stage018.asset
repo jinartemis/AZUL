@@ -16,8 +16,8 @@ MonoBehaviour:
     stageName: 18
     bgm: {fileID: 0}
     star3_score: 1000
-    star2_score: 500
-    star1_score: 300
+    star2_score: 700
+    star1_score: 400
     sheet:
     - lane:
       - tile:
@@ -27,24 +27,10 @@ MonoBehaviour:
         - type: 0
           filled: 0
           obj: {fileID: 0}
-        - type: 0
+        - type: 1
           filled: 0
           obj: {fileID: 0}
-        - type: 0
-          filled: 0
-          obj: {fileID: 0}
-        point: 100
-      - tile:
-        - type: 0
-          filled: 0
-          obj: {fileID: 0}
-        - type: 0
-          filled: 0
-          obj: {fileID: 0}
-        - type: 0
-          filled: 0
-          obj: {fileID: 0}
-        - type: 0
+        - type: 1
           filled: 0
           obj: {fileID: 0}
         point: 100
@@ -52,10 +38,24 @@ MonoBehaviour:
         - type: 0
           filled: 0
           obj: {fileID: 0}
-        - type: 0
+        - type: 2
           filled: 0
           obj: {fileID: 0}
-        - type: 0
+        - type: 2
+          filled: 0
+          obj: {fileID: 0}
+        - type: 2
+          filled: 0
+          obj: {fileID: 0}
+        point: 100
+      - tile:
+        - type: 2
+          filled: 0
+          obj: {fileID: 0}
+        - type: 2
+          filled: 0
+          obj: {fileID: 0}
+        - type: 2
           filled: 0
           obj: {fileID: 0}
         - type: 0
@@ -63,10 +63,10 @@ MonoBehaviour:
           obj: {fileID: 0}
         point: 100
       - tile:
-        - type: 0
+        - type: 1
           filled: 0
           obj: {fileID: 0}
-        - type: 0
+        - type: 1
           filled: 0
           obj: {fileID: 0}
         - type: 0
@@ -81,7 +81,87 @@ MonoBehaviour:
       - type: 0
         filled: 0
         obj: {fileID: 0}
+      - type: 2
+        filled: 0
+        obj: {fileID: 0}
+      - type: 2
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+      - type: 4
+        filled: 0
+        obj: {fileID: 0}
+      - type: 4
+        filled: 0
+        obj: {fileID: 0}
+      - type: 2
+        filled: 0
+        obj: {fileID: 0}
+      - type: 2
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
       - type: 0
+        filled: 0
+        obj: {fileID: 0}
+      - type: 0
+        filled: 0
+        obj: {fileID: 0}
+      - type: 2
+        filled: 0
+        obj: {fileID: 0}
+      - type: 2
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 2
+        filled: 0
+        obj: {fileID: 0}
+      - type: 2
+        filled: 0
+        obj: {fileID: 0}
+      - type: 2
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+      - type: 4
+        filled: 0
+        obj: {fileID: 0}
+      - type: 4
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 2
+        filled: 0
+        obj: {fileID: 0}
+      - type: 2
         filled: 0
         obj: {fileID: 0}
       - type: 0
@@ -94,13 +174,39 @@ MonoBehaviour:
         filled: 0
         obj: {fileID: 0}
     - tile:
-      - type: 0
+      - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 0
+      - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 0
+      - type: 2
+        filled: 0
+        obj: {fileID: 0}
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 2
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+      - type: 4
+        filled: 0
+        obj: {fileID: 0}
+      - type: 4
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 1
         filled: 0
         obj: {fileID: 0}
       - type: 0
@@ -109,133 +215,27 @@ MonoBehaviour:
       - type: 2
         filled: 0
         obj: {fileID: 0}
-    - tile:
-      - type: 0
+      - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 3
+      - type: 2
         filled: 0
         obj: {fileID: 0}
     - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 4
-        filled: 0
-        obj: {fileID: 0}
-    - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 5
-        filled: 0
-        obj: {fileID: 0}
-    - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
+      - type: 1
         filled: 0
         obj: {fileID: 0}
       - type: 1
         filled: 0
         obj: {fileID: 0}
-    - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 2
-        filled: 0
-        obj: {fileID: 0}
-    - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
+      - type: 3
         filled: 0
         obj: {fileID: 0}
       - type: 3
         filled: 0
         obj: {fileID: 0}
-    - tile:
-      - type: 0
+      - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 4
-        filled: 0
-        obj: {fileID: 0}
-    - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 5
-        filled: 0
-        obj: {fileID: 0}
-  mobText_jp: 
-  mobText_en: 
+  mobText_jp: "\u30D7\u30FC\u30EB\u306B\u3044\u3063\u3071\u3044\u3042\u308B\u30D4\u30FC\u30B9\u3082\u9069\u5F53\u306B\u5165\u308C\u308B\u3068\u5371\u967A\uFF01"
+  mobText_en: It is dangerous to put pieces that are full in the pool properly

@@ -60,7 +60,7 @@ namespace ReoGames
             puzzleButton.onClick.RemoveAllListeners();
             puzzleButton.onClick.AddListener(()=> { ShowPanel(true, Panel.Puzzle); });
             shopButton.onClick.RemoveAllListeners();
-            shopButton.onClick.AddListener(() => { ShowPanel(true, Panel.Shop); });
+            //shopButton.onClick.AddListener(() => { ShowPanel(true, Panel.Shop); });
             settingsButton.onClick.RemoveAllListeners();
             settingsButton.onClick.AddListener(() => { ShowPanel(true, Panel.Settings); });
         }

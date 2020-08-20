@@ -16,8 +16,8 @@ MonoBehaviour:
     stageName: 6
     bgm: {fileID: 0}
     star3_score: 1000
-    star2_score: 500
-    star1_score: 300
+    star2_score: 700
+    star1_score: 400
     sheet:
     - lane:
       - tile:
@@ -237,5 +237,5 @@ MonoBehaviour:
       - type: 0
         filled: 0
         obj: {fileID: 0}
-  mobText_jp: 
-  mobText_en: 
+  mobText_jp: "1\u30EC\u30FC\u30F3\u306E4\u30D4\u30FC\u30B9\u3092\u3069\u3046\u57CB\u3081\u308B\u304B\u304C\u30AB\u30AE\u3060\u306D\uFF0E\uFF0E\uFF0E"
+  mobText_en: The key is how to fill the four pieces in one lane

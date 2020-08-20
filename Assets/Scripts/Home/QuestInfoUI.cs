@@ -12,6 +12,8 @@ namespace ReoGames
     {
         //クエスト名
         private Text questLabel;
+        //ハイスコア
+        private Text highScoreLabel;
         //評価★
         private Image[] stars = new Image[3];
         //依頼人画像
@@ -45,6 +47,9 @@ namespace ReoGames
         //プール１００まで対応
         private int poolCount = 100;
 
+        [SerializeField, Header("モブ画像")]
+        private Sprite[] mobSprite;
+
         public void Initialize()
         {
             LoadUI();
@@ -54,11 +59,12 @@ namespace ReoGames
         private void LoadUI()
         {
             questLabel = Find(HierarchyPath_Home.UICanvas._QuestPanel_QuestInfoPanel_QuestLabel).GetComponent<Text>();
+            highScoreLabel = Find(HierarchyPath_Home.UICanvas._QuestPanel_QuestInfoPanel_HighScoreLabel_HighScoreValueLabel).GetComponent<Text>();
             stars[0] = Find(HierarchyPath_Home.UICanvas._QuestPanel_QuestInfoPanel_Stars_star0).GetComponent<Image>();
             stars[1] = Find(HierarchyPath_Home.UICanvas._QuestPanel_QuestInfoPanel_Stars_star1).GetComponent<Image>();
             stars[2] = Find(HierarchyPath_Home.UICanvas._QuestPanel_QuestInfoPanel_Stars_star2).GetComponent<Image>();
             mobImage = Find(HierarchyPath_Home.UICanvas._QuestPanel_QuestInfoPanel_MobCharacter).GetComponent<Image>();
-            serihuLabel = Find(HierarchyPath_Home.UICanvas._QuestPanel_QuestInfoPanel_SerihuFrame_SerihuLabel).GetComponent<Text>();
+            serihuLabel = Find(HierarchyPath_Home.UICanvas._QuestPanel_QuestInfoPanel_SerihuFrame_ScrollView_Viewport_Content_SerihuLabel).GetComponent<Text>();
             var correctPanel = Find(HierarchyPath_Home.UICanvas._QuestPanel_QuestInfoPanel_CorrectPanel).transform;
             lanes = new Lane[correctPanel.childCount];
             for(int i = 0; i < lanes.Length; i++)
@@ -109,8 +115,11 @@ namespace ReoGames
             {
                 //ステージ情報更新
                 var sData = data.GetStageData();
-                questLabel.text = $"Stage{stageNumber}";// sData.stageName;
+                questLabel.text = $"Stage{stageNumber+1}";// sData.stageName;
                 int highScore = PlayerPrefs.GetInt(string.Format(Define.HIGH_SCORE_FORMAT_KEY, stageNumber), 0);
+                highScoreLabel.text = highScore.ToString("D8");
+                mobImage.sprite = mobSprite[stageNumber % 2];
+                serihuLabel.text = (Application.systemLanguage == SystemLanguage.Japanese) ? data.mobText_jp : data.mobText_en;
                 int star3Score = sData.star3_score;
                 int star2Score = sData.star2_score;
                 int star1Score = sData.star1_score;
@@ -134,7 +143,7 @@ namespace ReoGames
                 //プールリスト
                 for (int p = 0; p < sData.pool.Length; p++)
                 {
-                    gemListPanels[p].waveLabel.text = $"Wave{p}";
+                    gemListPanels[p].waveLabel.text = $"Wave{p+1}";
                     for(int g = 0; g < sData.pool[p].tile.Length; g++)
                     {
                         int gemType2 = (int)sData.pool[p].tile[g].type;

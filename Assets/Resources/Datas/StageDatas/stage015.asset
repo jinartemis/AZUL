@@ -16,8 +16,8 @@ MonoBehaviour:
     stageName: 15
     bgm: {fileID: 0}
     star3_score: 1000
-    star2_score: 500
-    star1_score: 300
+    star2_score: 700
+    star1_score: 400
     sheet:
     - lane:
       - tile:
@@ -35,110 +35,94 @@ MonoBehaviour:
           obj: {fileID: 0}
         point: 100
       - tile:
-        - type: 0
+        - type: 1
           filled: 0
           obj: {fileID: 0}
-        - type: 0
+        - type: 1
           filled: 0
           obj: {fileID: 0}
-        - type: 0
+        - type: 1
           filled: 0
           obj: {fileID: 0}
-        - type: 0
-          filled: 0
-          obj: {fileID: 0}
-        point: 100
-      - tile:
-        - type: 0
-          filled: 0
-          obj: {fileID: 0}
-        - type: 0
-          filled: 0
-          obj: {fileID: 0}
-        - type: 0
-          filled: 0
-          obj: {fileID: 0}
-        - type: 0
+        - type: 1
           filled: 0
           obj: {fileID: 0}
         point: 100
       - tile:
-        - type: 0
+        - type: 2
           filled: 0
           obj: {fileID: 0}
-        - type: 0
+        - type: 2
           filled: 0
           obj: {fileID: 0}
-        - type: 0
+        - type: 2
           filled: 0
           obj: {fileID: 0}
-        - type: 0
+        - type: 2
+          filled: 0
+          obj: {fileID: 0}
+        point: 100
+      - tile:
+        - type: 3
+          filled: 0
+          obj: {fileID: 0}
+        - type: 3
+          filled: 0
+          obj: {fileID: 0}
+        - type: 3
+          filled: 0
+          obj: {fileID: 0}
+        - type: 3
           filled: 0
           obj: {fileID: 0}
         point: 100
     pool:
     - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 1
-        filled: 0
-        obj: {fileID: 0}
-    - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 2
-        filled: 0
-        obj: {fileID: 0}
-    - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
+      - type: 3
         filled: 0
         obj: {fileID: 0}
       - type: 3
         filled: 0
         obj: {fileID: 0}
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
     - tile:
-      - type: 0
+      - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 0
+      - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 0
+      - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 0
+      - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 4
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
         filled: 0
         obj: {fileID: 0}
     - tile:
@@ -158,67 +142,51 @@ MonoBehaviour:
         filled: 0
         obj: {fileID: 0}
     - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 1
-        filled: 0
-        obj: {fileID: 0}
-    - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 2
-        filled: 0
-        obj: {fileID: 0}
-    - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
+      - type: 3
         filled: 0
         obj: {fileID: 0}
       - type: 3
         filled: 0
         obj: {fileID: 0}
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
     - tile:
-      - type: 0
+      - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 0
+      - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 0
+      - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 0
+      - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 4
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
         filled: 0
         obj: {fileID: 0}
     - tile:
@@ -237,5 +205,37 @@ MonoBehaviour:
       - type: 5
         filled: 0
         obj: {fileID: 0}
-  mobText_jp: 
-  mobText_en: 
+    - tile:
+      - type: 4
+        filled: 0
+        obj: {fileID: 0}
+      - type: 4
+        filled: 0
+        obj: {fileID: 0}
+      - type: 4
+        filled: 0
+        obj: {fileID: 0}
+      - type: 4
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+  mobText_jp: "4\u8272\u51FA\u73FE\uFF01"
+  mobText_en: "\uFF14Colors\uFF01"

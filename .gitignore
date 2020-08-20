@@ -1179,3 +1179,4 @@ ios/Classes/PluginBase/RenderPluginDelegate.h
 ios/Classes/PluginBase/LifeCycleListener.mm
 ios/Classes/PluginBase/LifeCycleListener.h
 ios/Classes/PluginBase/AppDelegateListener.mm
+ios/

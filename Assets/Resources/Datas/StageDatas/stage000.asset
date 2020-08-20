@@ -16,8 +16,8 @@ MonoBehaviour:
     stageName: 0
     bgm: {fileID: 0}
     star3_score: 1000
-    star2_score: 500
-    star1_score: 300
+    star2_score: 700
+    star1_score: 400
     sheet:
     - lane:
       - tile:
@@ -237,5 +237,5 @@ MonoBehaviour:
       - type: 5
         filled: 0
         obj: {fileID: 0}
-  mobText_jp: "\u4E00\u8272\u306E\u304D\u308C\u3044\u306A\u3082\u306E\u304C\u307B\u3057\u3044\u306E\uFF01"
-  mobText_en: 'I want single color one '
+  mobText_jp: "\u307E\u305A\u306F\u64CD\u4F5C\u306B\u6163\u308C\u3088\u3046\uFF01"
+  mobText_en: At first lets get used to operation

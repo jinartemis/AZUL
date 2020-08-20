@@ -103,7 +103,7 @@ public class QuestManager : MonoBehaviour
             int stageNum = i;
             var qb = Instantiate(questButtonPrefab, questButtonParent.transform);
 
-            qb.transform.GetChild(0).GetComponent<Text>().text = string.Format("{0}", stageNum);
+            qb.transform.GetChild(0).GetComponent<Text>().text = string.Format("{0}", stageNum+1);
 
             Button qButton = qb.GetComponent<Button>();
             qButton.onClick.AddListener(()=> {

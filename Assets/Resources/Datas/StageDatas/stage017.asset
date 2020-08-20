@@ -16,226 +16,226 @@ MonoBehaviour:
     stageName: 17
     bgm: {fileID: 0}
     star3_score: 1000
-    star2_score: 500
-    star1_score: 300
+    star2_score: 700
+    star1_score: 400
     sheet:
     - lane:
       - tile:
-        - type: 0
+        - type: 1
           filled: 0
           obj: {fileID: 0}
-        - type: 0
+        - type: 1
           filled: 0
           obj: {fileID: 0}
-        - type: 0
+        - type: 3
           filled: 0
           obj: {fileID: 0}
-        - type: 0
-          filled: 0
-          obj: {fileID: 0}
-        point: 100
-      - tile:
-        - type: 0
-          filled: 0
-          obj: {fileID: 0}
-        - type: 0
-          filled: 0
-          obj: {fileID: 0}
-        - type: 0
-          filled: 0
-          obj: {fileID: 0}
-        - type: 0
+        - type: 3
           filled: 0
           obj: {fileID: 0}
         point: 100
       - tile:
-        - type: 0
+        - type: 1
           filled: 0
           obj: {fileID: 0}
-        - type: 0
+        - type: 2
           filled: 0
           obj: {fileID: 0}
-        - type: 0
+        - type: 2
           filled: 0
           obj: {fileID: 0}
-        - type: 0
+        - type: 3
           filled: 0
           obj: {fileID: 0}
         point: 100
       - tile:
-        - type: 0
+        - type: 1
           filled: 0
           obj: {fileID: 0}
-        - type: 0
+        - type: 2
           filled: 0
           obj: {fileID: 0}
-        - type: 0
+        - type: 2
           filled: 0
           obj: {fileID: 0}
-        - type: 0
+        - type: 3
+          filled: 0
+          obj: {fileID: 0}
+        point: 100
+      - tile:
+        - type: 1
+          filled: 0
+          obj: {fileID: 0}
+        - type: 1
+          filled: 0
+          obj: {fileID: 0}
+        - type: 3
+          filled: 0
+          obj: {fileID: 0}
+        - type: 3
           filled: 0
           obj: {fileID: 0}
         point: 100
     pool:
     - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
+      - type: 1
         filled: 0
         obj: {fileID: 0}
       - type: 1
         filled: 0
         obj: {fileID: 0}
-    - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
       - type: 2
         filled: 0
         obj: {fileID: 0}
-    - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
+      - type: 3
         filled: 0
         obj: {fileID: 0}
       - type: 3
         filled: 0
         obj: {fileID: 0}
     - tile:
-      - type: 0
+      - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 0
+      - type: 3
         filled: 0
         obj: {fileID: 0}
-      - type: 0
+      - type: 3
         filled: 0
         obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 4
-        filled: 0
-        obj: {fileID: 0}
-    - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 5
-        filled: 0
-        obj: {fileID: 0}
-    - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
+      - type: 1
         filled: 0
         obj: {fileID: 0}
       - type: 1
         filled: 0
         obj: {fileID: 0}
     - tile:
-      - type: 0
+      - type: 4
         filled: 0
         obj: {fileID: 0}
-      - type: 0
+      - type: 4
         filled: 0
         obj: {fileID: 0}
-      - type: 0
+      - type: 3
         filled: 0
         obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 2
-        filled: 0
-        obj: {fileID: 0}
-    - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
+      - type: 3
         filled: 0
         obj: {fileID: 0}
       - type: 3
         filled: 0
         obj: {fileID: 0}
     - tile:
-      - type: 0
+      - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 0
+      - type: 1
         filled: 0
         obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 4
-        filled: 0
-        obj: {fileID: 0}
-    - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
+      - type: 1
         filled: 0
         obj: {fileID: 0}
       - type: 5
         filled: 0
         obj: {fileID: 0}
-  mobText_jp: 
-  mobText_en: 
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 2
+        filled: 0
+        obj: {fileID: 0}
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+      - type: 4
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 4
+        filled: 0
+        obj: {fileID: 0}
+      - type: 4
+        filled: 0
+        obj: {fileID: 0}
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 4
+        filled: 0
+        obj: {fileID: 0}
+      - type: 4
+        filled: 0
+        obj: {fileID: 0}
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+  mobText_jp: "\u30D7\u30FC\u30EB\u3092\u898B\u3066\u5C11\u306A\u3044\u30D4\u30FC\u30B9\u304C\u3042\u308B\u5834\u5408\u306F\u8981\u6CE8\u610F\uFF01"
+  mobText_en: Watch out if you have a few pieces looking at the pool
