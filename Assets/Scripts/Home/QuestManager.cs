@@ -101,9 +101,22 @@ public class QuestManager : MonoBehaviour
         for(int i = 0; i < allStageDatas.Length; i++)
         {
             int stageNum = i;
+
+            //スコア取得
+            var sData = allStageDatas[stageNum].GetStageData();
+            int highScore = PlayerPrefs.GetInt(string.Format(Define.HIGH_SCORE_FORMAT_KEY, stageNum), 0);
+            int star3Score = sData.star3_score;
+            int star2Score = sData.star2_score;
+            int star1Score = sData.star1_score;
+            int starCount = ScoreChecker.GetStarScore(highScore, star3Score, star2Score, star1Score);
+
             var qb = Instantiate(questButtonPrefab, questButtonParent.transform);
 
-            qb.transform.GetChild(0).GetComponent<Text>().text = string.Format("{0}", stageNum+1);
+            qb.transform.Find("Text").GetComponent<Text>().text = string.Format("{0}", stageNum+1);
+            for(int s = 0; s < 3; s++)
+            {
+                qb.transform.Find($"Star{s}").GetComponent<Image>().color = (starCount > s) ? Color.white : Color.gray;
+            }
 
             Button qButton = qb.GetComponent<Button>();
             qButton.onClick.AddListener(()=> {

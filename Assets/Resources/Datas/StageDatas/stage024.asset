@@ -15,9 +15,9 @@ MonoBehaviour:
   stage:
     stageName: 24
     bgm: {fileID: 0}
-    star3_score: 1000
-    star2_score: 700
-    star1_score: 400
+    star3_score: 10000
+    star2_score: 7000
+    star1_score: 4000
     sheet:
     - lane:
       - tile:
@@ -33,7 +33,7 @@ MonoBehaviour:
         - type: 1
           filled: 0
           obj: {fileID: 0}
-        point: 100
+        point: 1000
       - tile:
         - type: 4
           filled: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
         - type: 4
           filled: 0
           obj: {fileID: 0}
-        point: 100
+        point: 1000
       - tile:
         - type: 4
           filled: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
         - type: 4
           filled: 0
           obj: {fileID: 0}
-        point: 100
+        point: 1000
       - tile:
         - type: 2
           filled: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
         - type: 1
           filled: 0
           obj: {fileID: 0}
-        point: 100
+        point: 1000
     pool:
     - tile:
       - type: 2
@@ -84,7 +84,7 @@ MonoBehaviour:
       - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 4
+      - type: 3
         filled: 0
         obj: {fileID: 0}
       - type: 3
@@ -94,23 +94,13 @@ MonoBehaviour:
         filled: 0
         obj: {fileID: 0}
     - tile:
-      - type: 0
+      - type: 4
         filled: 0
         obj: {fileID: 0}
       - type: 3
         filled: 0
         obj: {fileID: 0}
-      - type: 1
-        filled: 0
-        obj: {fileID: 0}
-      - type: 1
-        filled: 0
-        obj: {fileID: 0}
-      - type: 3
-        filled: 0
-        obj: {fileID: 0}
-    - tile:
-      - type: 2
+      - type: 4
         filled: 0
         obj: {fileID: 0}
       - type: 3
@@ -119,14 +109,14 @@ MonoBehaviour:
       - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 4
+    - tile:
+      - type: 3
         filled: 0
         obj: {fileID: 0}
       - type: 5
         filled: 0
         obj: {fileID: 0}
-    - tile:
-      - type: 0
+      - type: 5
         filled: 0
         obj: {fileID: 0}
       - type: 3
@@ -135,97 +125,56 @@ MonoBehaviour:
       - type: 3
         filled: 0
         obj: {fileID: 0}
-      - type: 4
-        filled: 0
-        obj: {fileID: 0}
-      - type: 5
-        filled: 0
-        obj: {fileID: 0}
     - tile:
-      - type: 4
+      - type: 1
         filled: 0
         obj: {fileID: 0}
       - type: 1
         filled: 0
         obj: {fileID: 0}
-      - type: 3
+      - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 1
+      - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-    - tile:
-      - type: 5
-        filled: 0
-        obj: {fileID: 0}
-      - type: 5
-        filled: 0
-        obj: {fileID: 0}
-      - type: 4
-        filled: 0
-        obj: {fileID: 0}
-      - type: 4
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-    - tile:
-      - type: 5
-        filled: 0
-        obj: {fileID: 0}
-      - type: 4
-        filled: 0
-        obj: {fileID: 0}
-      - type: 3
-        filled: 0
-        obj: {fileID: 0}
-      - type: 1
-        filled: 0
-        obj: {fileID: 0}
-      - type: 5
+      - type: 2
         filled: 0
         obj: {fileID: 0}
     - tile:
       - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 3
+      - type: 2
         filled: 0
         obj: {fileID: 0}
-      - type: 4
+      - type: 0
         filled: 0
         obj: {fileID: 0}
-      - type: 5
+      - type: 0
         filled: 0
         obj: {fileID: 0}
       - type: 0
         filled: 0
         obj: {fileID: 0}
     - tile:
-      - type: 4
-        filled: 0
-        obj: {fileID: 0}
-      - type: 3
+      - type: 1
         filled: 0
         obj: {fileID: 0}
       - type: 1
         filled: 0
         obj: {fileID: 0}
-      - type: 5
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+      - type: 3
         filled: 0
         obj: {fileID: 0}
       - type: 0
         filled: 0
         obj: {fileID: 0}
     - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 2
+      - type: 5
         filled: 0
         obj: {fileID: 0}
       - type: 3
@@ -234,7 +183,42 @@ MonoBehaviour:
       - type: 4
         filled: 0
         obj: {fileID: 0}
+      - type: 4
+        filled: 0
+        obj: {fileID: 0}
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 4
+        filled: 0
+        obj: {fileID: 0}
+      - type: 4
+        filled: 0
+        obj: {fileID: 0}
       - type: 5
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+      - type: 0
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+      - type: 2
+        filled: 0
+        obj: {fileID: 0}
+      - type: 2
+        filled: 0
+        obj: {fileID: 0}
+      - type: 4
         filled: 0
         obj: {fileID: 0}
   mobText_jp: "\u4E00\u756A\u53F3\u306E\u30EC\u30FC\u30F3\u3092\u65E9\u304F\u57CB\u3081\u305F\u3044\u306E\u3060\u3051\u3069\uFF0E\uFF0E\uFF0E"

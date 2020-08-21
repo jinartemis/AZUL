@@ -15,9 +15,9 @@ MonoBehaviour:
   stage:
     stageName: 21
     bgm: {fileID: 0}
-    star3_score: 1000
-    star2_score: 700
-    star1_score: 400
+    star3_score: 10000
+    star2_score: 7000
+    star1_score: 4000
     sheet:
     - lane:
       - tile:
@@ -33,7 +33,7 @@ MonoBehaviour:
         - type: 0
           filled: 0
           obj: {fileID: 0}
-        point: 100
+        point: 1000
       - tile:
         - type: 0
           filled: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
         - type: 0
           filled: 0
           obj: {fileID: 0}
-        point: 100
+        point: 1000
       - tile:
         - type: 0
           filled: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
         - type: 0
           filled: 0
           obj: {fileID: 0}
-        point: 100
+        point: 1000
       - tile:
         - type: 0
           filled: 0
@@ -75,7 +75,7 @@ MonoBehaviour:
         - type: 0
           filled: 0
           obj: {fileID: 0}
-        point: 100
+        point: 1000
     pool:
     - tile:
       - type: 2
@@ -205,38 +205,5 @@ MonoBehaviour:
       - type: 3
         filled: 0
         obj: {fileID: 0}
-    - tile:
-      - type: 1
-        filled: 0
-        obj: {fileID: 0}
-      - type: 1
-        filled: 0
-        obj: {fileID: 0}
-      - type: 1
-        filled: 0
-        obj: {fileID: 0}
-      - type: 1
-        filled: 0
-        obj: {fileID: 0}
-      - type: 1
-        filled: 0
-        obj: {fileID: 0}
-    - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-  mobText_jp: "\u30D4\u30FC\u30B9\u304C\u7E26\u4E00\u5217\u306B\u8907\u6570\u3042\u308B\u5834\u5408\u306F\u4E21\u65B9\u4E00\u5EA6\u306B\u57CB\u3081\u308B\u3053\u3068\u304C\u3067\u304D\u308B\u3088\uFF01"
-  mobText_en: "If you have multiple pieces in a row\uFF0C you can fill them both
-    at once"
+  mobText_jp: "\u6642\u306B\u306F\u53F3\u304B\u3089\u3067\u306F\u306A\u304F\uFF0E\uFF0E\uFF0E"
+  mobText_en: Sometimes not from the right

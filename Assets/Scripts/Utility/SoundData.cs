@@ -12,14 +12,19 @@ public class SoundData : ScriptableObject
         Error,
         Cansel,
         Touch,
+        NewRecord,
     }
 
     public enum BGM
     {
         Title,
         Home,
-        Game,
-        Clear,
+        Game0,
+        Game1,
+        Game2,
+        Clear0,
+        Clear1,
+        Clear2,
         Failed,
     }
 

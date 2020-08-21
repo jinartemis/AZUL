@@ -77,6 +77,10 @@
 			public const string _CFX3_MagicAura_B_Runic_CFX3Spikes = "GameCanvas/CFX3_MagicAura_B_Runic/CFX3 Spikes";
 			public const string _CFX3_MagicAura_B_Runic_CFX3Stars = "GameCanvas/CFX3_MagicAura_B_Runic/CFX3 Stars";
 			public const string _CFX3_MagicAura_B_Runic_CFX3SmallAura = "GameCanvas/CFX3_MagicAura_B_Runic/CFX3 Small Aura";
+			public const string _SkipPanel = "GameCanvas/SkipPanel";
+			public const string _SkipPanel_Image = "GameCanvas/SkipPanel/Image";
+			public const string _SkipPanel_Image_Text = "GameCanvas/SkipPanel/Image/Text";
+			public const string _TapText = "GameCanvas/TapText";
 		}
 		public struct UICanvas
 		{
@@ -136,12 +140,14 @@
 			public const string _resultPanel_ClearPanel_MadeTileSheet_Image13 = "UICanvas/resultPanel/ClearPanel/MadeTileSheet/Image (13)";
 			public const string _resultPanel_ClearPanel_MadeTileSheet_Image14 = "UICanvas/resultPanel/ClearPanel/MadeTileSheet/Image (14)";
 			public const string _resultPanel_ClearPanel_MadeTileSheet_Image15 = "UICanvas/resultPanel/ClearPanel/MadeTileSheet/Image (15)";
-			public const string _resultPanel_ClearPanel_HomeButton = "UICanvas/resultPanel/ClearPanel/HomeButton";
-			public const string _resultPanel_ClearPanel_HomeButton_Text = "UICanvas/resultPanel/ClearPanel/HomeButton/Text";
 			public const string _resultPanel_ClearPanel_ShareButton = "UICanvas/resultPanel/ClearPanel/ShareButton";
 			public const string _resultPanel_ClearPanel_ShareButton_Text = "UICanvas/resultPanel/ClearPanel/ShareButton/Text";
 			public const string _resultPanel_ClearPanel_NextStageButton = "UICanvas/resultPanel/ClearPanel/NextStageButton";
 			public const string _resultPanel_ClearPanel_NextStageButton_Text = "UICanvas/resultPanel/ClearPanel/NextStageButton/Text";
+			public const string _resultPanel_ClearPanel_RetryButton = "UICanvas/resultPanel/ClearPanel/RetryButton";
+			public const string _resultPanel_ClearPanel_RetryButton_Text = "UICanvas/resultPanel/ClearPanel/RetryButton/Text";
+			public const string _resultPanel_ClearPanel_HomeButton = "UICanvas/resultPanel/ClearPanel/HomeButton";
+			public const string _resultPanel_ClearPanel_HomeButton_Text = "UICanvas/resultPanel/ClearPanel/HomeButton/Text";
 			public const string _resultPanel_ClearPanel_ScoreLabel = "UICanvas/resultPanel/ClearPanel/ScoreLabel";
 			public const string _resultPanel_ClearPanel_ScoreValueLabel = "UICanvas/resultPanel/ClearPanel/ScoreValueLabel";
 			public const string _resultPanel_ClearPanel_HighScoreLabel = "UICanvas/resultPanel/ClearPanel/HighScoreLabel";
@@ -184,9 +190,62 @@
 			public const string _resultPanel_FailedPanel_HomeButton = "UICanvas/resultPanel/FailedPanel/HomeButton";
 			public const string _resultPanel_FailedPanel_HomeButton_Text = "UICanvas/resultPanel/FailedPanel/HomeButton/Text";
 			public const string _resultPanel_LockPanel = "UICanvas/resultPanel/LockPanel";
+			public const string _resultPanel_ThankyouPanel = "UICanvas/resultPanel/ThankyouPanel";
+			public const string _resultPanel_ThankyouPanel_BackImage = "UICanvas/resultPanel/ThankyouPanel/BackImage";
+			public const string _resultPanel_ThankyouPanel_CharaImage = "UICanvas/resultPanel/ThankyouPanel/CharaImage";
+			public const string _resultPanel_ThankyouPanel_HukidashiImage = "UICanvas/resultPanel/ThankyouPanel/HukidashiImage";
+			public const string _resultPanel_ThankyouPanel_HukidashiImage_SerihuLabel = "UICanvas/resultPanel/ThankyouPanel/HukidashiImage/SerihuLabel";
+			public const string _resultPanel_ThankyouPanel_HomeButton = "UICanvas/resultPanel/ThankyouPanel/HomeButton";
+			public const string _resultPanel_ThankyouPanel_OtherGameButton = "UICanvas/resultPanel/ThankyouPanel/OtherGameButton";
+			public const string _resultPanel_ThankyouPanel_OtherGameButton_Text = "UICanvas/resultPanel/ThankyouPanel/OtherGameButton/Text";
+			public const string _resultPanel_ThankyouPanel_OtherGameButton_webHukidashi = "UICanvas/resultPanel/ThankyouPanel/OtherGameButton/webHukidashi";
+			public const string _resultPanel_ThankyouPanel_OtherGameButton_webHukidashi_Text = "UICanvas/resultPanel/ThankyouPanel/OtherGameButton/webHukidashi/Text";
+			public const string _resultPanel_ThankyouPanel_OtherGameButton_IconFrame = "UICanvas/resultPanel/ThankyouPanel/OtherGameButton/IconFrame";
+			public const string _resultPanel_ThankyouPanel_OtherGameButton_IconFrame_Icon = "UICanvas/resultPanel/ThankyouPanel/OtherGameButton/IconFrame/Icon";
+			public const string _resultPanel_ThankyouPanel_OtherGameButton_IconFrame1 = "UICanvas/resultPanel/ThankyouPanel/OtherGameButton/IconFrame (1)";
+			public const string _resultPanel_ThankyouPanel_OtherGameButton_IconFrame1_Icon = "UICanvas/resultPanel/ThankyouPanel/OtherGameButton/IconFrame (1)/Icon";
+			public const string _SettingPanel = "UICanvas/SettingPanel";
+			public const string _SettingPanel_Image = "UICanvas/SettingPanel/Image";
+			public const string _SettingPanel_Image_Text = "UICanvas/SettingPanel/Image/Text";
+			public const string _SettingPanel_Image_RetryButton = "UICanvas/SettingPanel/Image/RetryButton";
+			public const string _SettingPanel_Image_RetryButton_Text = "UICanvas/SettingPanel/Image/RetryButton/Text";
+			public const string _SettingPanel_Image_HideSettingPanelButton = "UICanvas/SettingPanel/Image/HideSettingPanelButton";
+			public const string _SettingPanel_Image_HideSettingPanelButton_Text = "UICanvas/SettingPanel/Image/HideSettingPanelButton/Text";
+			public const string _SettingPanel_Image_BackHomeButton = "UICanvas/SettingPanel/Image/BackHomeButton";
+			public const string _SettingPanel_Image_BackHomeButton_Text = "UICanvas/SettingPanel/Image/BackHomeButton/Text";
+			public const string _SettingPanel_Image_SoundPanel = "UICanvas/SettingPanel/Image/SoundPanel";
+			public const string _SettingPanel_Image_SoundPanel_BGMLabel = "UICanvas/SettingPanel/Image/SoundPanel/BGMLabel";
+			public const string _SettingPanel_Image_SoundPanel_BGMLabel_BGMSlider = "UICanvas/SettingPanel/Image/SoundPanel/BGMLabel/BGMSlider";
+			public const string _SettingPanel_Image_SoundPanel_BGMLabel_BGMSlider_Background = "UICanvas/SettingPanel/Image/SoundPanel/BGMLabel/BGMSlider/Background";
+			public const string _SettingPanel_Image_SoundPanel_BGMLabel_BGMSlider_FillArea = "UICanvas/SettingPanel/Image/SoundPanel/BGMLabel/BGMSlider/Fill Area";
+			public const string _SettingPanel_Image_SoundPanel_BGMLabel_BGMSlider_FillArea_Fill = "UICanvas/SettingPanel/Image/SoundPanel/BGMLabel/BGMSlider/Fill Area/Fill";
+			public const string _SettingPanel_Image_SoundPanel_BGMLabel_BGMSlider_HandleSlideArea = "UICanvas/SettingPanel/Image/SoundPanel/BGMLabel/BGMSlider/Handle Slide Area";
+			public const string _SettingPanel_Image_SoundPanel_BGMLabel_BGMSlider_HandleSlideArea_Handle = "UICanvas/SettingPanel/Image/SoundPanel/BGMLabel/BGMSlider/Handle Slide Area/Handle";
+			public const string _SettingPanel_Image_SoundPanel_SELabel = "UICanvas/SettingPanel/Image/SoundPanel/SELabel";
+			public const string _SettingPanel_Image_SoundPanel_SELabel_SESlider = "UICanvas/SettingPanel/Image/SoundPanel/SELabel/SESlider";
+			public const string _SettingPanel_Image_SoundPanel_SELabel_SESlider_Background = "UICanvas/SettingPanel/Image/SoundPanel/SELabel/SESlider/Background";
+			public const string _SettingPanel_Image_SoundPanel_SELabel_SESlider_FillArea = "UICanvas/SettingPanel/Image/SoundPanel/SELabel/SESlider/Fill Area";
+			public const string _SettingPanel_Image_SoundPanel_SELabel_SESlider_FillArea_Fill = "UICanvas/SettingPanel/Image/SoundPanel/SELabel/SESlider/Fill Area/Fill";
+			public const string _SettingPanel_Image_SoundPanel_SELabel_SESlider_HandleSlideArea = "UICanvas/SettingPanel/Image/SoundPanel/SELabel/SESlider/Handle Slide Area";
+			public const string _SettingPanel_Image_SoundPanel_SELabel_SESlider_HandleSlideArea_Handle = "UICanvas/SettingPanel/Image/SoundPanel/SELabel/SESlider/Handle Slide Area/Handle";
 			public const string _LoadingPanel = "UICanvas/LoadingPanel";
 			public const string _LoadingPanel_Text = "UICanvas/LoadingPanel/Text";
 			public const string _LoadingPanel_Text_gemIcon = "UICanvas/LoadingPanel/Text/gemIcon";
+			public const string _PoolListPanel = "UICanvas/PoolListPanel";
+			public const string _PoolListPanel_PoolListPanel = "UICanvas/PoolListPanel/PoolListPanel";
+			public const string _PoolListPanel_PoolListPanel_PoolListScrollVIewBack = "UICanvas/PoolListPanel/PoolListPanel/PoolListScrollVIewBack";
+			public const string _PoolListPanel_PoolListPanel_PoolListScrollVIewBack_ScrollView = "UICanvas/PoolListPanel/PoolListPanel/PoolListScrollVIewBack/Scroll View";
+			public const string _PoolListPanel_PoolListPanel_PoolListScrollVIewBack_ScrollView_Viewport = "UICanvas/PoolListPanel/PoolListPanel/PoolListScrollVIewBack/Scroll View/Viewport";
+			public const string _PoolListPanel_PoolListPanel_PoolListScrollVIewBack_ScrollView_Viewport_poolListPanelContent = "UICanvas/PoolListPanel/PoolListPanel/PoolListScrollVIewBack/Scroll View/Viewport/poolListPanelContent";
+			public const string _PoolListPanel_PoolListPanel_PoolListScrollVIewBack_ScrollView_ScrollbarHorizontal = "UICanvas/PoolListPanel/PoolListPanel/PoolListScrollVIewBack/Scroll View/Scrollbar Horizontal";
+			public const string _PoolListPanel_PoolListPanel_PoolListScrollVIewBack_ScrollView_ScrollbarHorizontal_SlidingArea = "UICanvas/PoolListPanel/PoolListPanel/PoolListScrollVIewBack/Scroll View/Scrollbar Horizontal/Sliding Area";
+			public const string _PoolListPanel_PoolListPanel_PoolListScrollVIewBack_ScrollView_ScrollbarHorizontal_SlidingArea_Handle = "UICanvas/PoolListPanel/PoolListPanel/PoolListScrollVIewBack/Scroll View/Scrollbar Horizontal/Sliding Area/Handle";
+			public const string _PoolListPanel_PoolListPanel_PoolListScrollVIewBack_ScrollView_ScrollbarVertical = "UICanvas/PoolListPanel/PoolListPanel/PoolListScrollVIewBack/Scroll View/Scrollbar Vertical";
+			public const string _PoolListPanel_PoolListPanel_PoolListScrollVIewBack_ScrollView_ScrollbarVertical_SlidingArea = "UICanvas/PoolListPanel/PoolListPanel/PoolListScrollVIewBack/Scroll View/Scrollbar Vertical/Sliding Area";
+			public const string _PoolListPanel_PoolListPanel_PoolListScrollVIewBack_ScrollView_ScrollbarVertical_SlidingArea_Handle = "UICanvas/PoolListPanel/PoolListPanel/PoolListScrollVIewBack/Scroll View/Scrollbar Vertical/Sliding Area/Handle";
+			public const string _PoolListPanel_PoolListPanel_Text = "UICanvas/PoolListPanel/PoolListPanel/Text";
+			public const string _PoolListPanel_HidePoolListPanelButton = "UICanvas/PoolListPanel/HidePoolListPanelButton";
+			public const string _PoolListPanel_HidePoolListPanelButton_Text = "UICanvas/PoolListPanel/HidePoolListPanelButton/Text";
 		}
 		public struct EventSystem
 		{

@@ -39,8 +39,11 @@ PlayerSettings:
     y: 0
     width: 1
     height: 1
-  m_SplashScreenLogos: []
-  m_VirtualRealitySplashScreen: {fileID: 0}
+  m_SplashScreenLogos:
+  - logo: {fileID: 21300000, guid: 19027ce6af090444f9026dc9ec366caf, type: 3}
+    duration: 2
+  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 19027ce6af090444f9026dc9ec366caf,
+    type: 3}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
   defaultScreenHeight: 768
@@ -167,7 +170,7 @@ PlayerSettings:
   applicationIdentifier:
     Standalone: com.Company.ProductName
   buildNumber:
-    iPhone: 2
+    iPhone: 4
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 28
@@ -265,7 +268,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 33081feeafaec9547865a8a8c8603fc7, type: 3}
+      m_Icon: {fileID: 2800000, guid: 59ab7f4d8b9dd2346a253311575a1ab9, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

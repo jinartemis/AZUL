@@ -15,13 +15,13 @@ MonoBehaviour:
   stage:
     stageName: 6
     bgm: {fileID: 0}
-    star3_score: 1000
-    star2_score: 700
-    star1_score: 400
+    star3_score: 10000
+    star2_score: 7000
+    star1_score: 4000
     sheet:
     - lane:
       - tile:
-        - type: 2
+        - type: 1
           filled: 0
           obj: {fileID: 0}
         - type: 0
@@ -30,26 +30,29 @@ MonoBehaviour:
         - type: 0
           filled: 0
           obj: {fileID: 0}
-        - type: 0
+        - type: 1
           filled: 0
           obj: {fileID: 0}
-        point: 100
+        point: 1000
       - tile:
-        - type: 2
+        - type: 0
           filled: 0
           obj: {fileID: 0}
         - type: 0
           filled: 0
           obj: {fileID: 0}
-        - type: 2
+        - type: 0
           filled: 0
           obj: {fileID: 0}
-        - type: 2
+        - type: 0
           filled: 0
           obj: {fileID: 0}
-        point: 100
+        point: 1000
       - tile:
-        - type: 2
+        - type: 0
+          filled: 0
+          obj: {fileID: 0}
+        - type: 0
           filled: 0
           obj: {fileID: 0}
         - type: 0
@@ -58,33 +61,46 @@ MonoBehaviour:
         - type: 0
           filled: 0
           obj: {fileID: 0}
-        - type: 2
-          filled: 0
-          obj: {fileID: 0}
-        point: 100
+        point: 1000
       - tile:
-        - type: 2
+        - type: 1
           filled: 0
           obj: {fileID: 0}
-        - type: 2
+        - type: 0
           filled: 0
           obj: {fileID: 0}
-        - type: 2
+        - type: 0
           filled: 0
           obj: {fileID: 0}
-        - type: 2
+        - type: 1
           filled: 0
           obj: {fileID: 0}
-        point: 100
+        point: 1000
     pool:
     - tile:
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 0
+        filled: 0
+        obj: {fileID: 0}
       - type: 0
         filled: 0
         obj: {fileID: 0}
       - type: 0
         filled: 0
         obj: {fileID: 0}
-      - type: 2
+      - type: 0
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 4
+        filled: 0
+        obj: {fileID: 0}
+      - type: 0
         filled: 0
         obj: {fileID: 0}
       - type: 4
@@ -94,19 +110,19 @@ MonoBehaviour:
         filled: 0
         obj: {fileID: 0}
     - tile:
-      - type: 2
-        filled: 0
-        obj: {fileID: 0}
-      - type: 2
-        filled: 0
-        obj: {fileID: 0}
-      - type: 2
+      - type: 5
         filled: 0
         obj: {fileID: 0}
       - type: 0
         filled: 0
         obj: {fileID: 0}
-      - type: 0
+      - type: 5
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
         filled: 0
         obj: {fileID: 0}
     - tile:
@@ -116,20 +132,36 @@ MonoBehaviour:
       - type: 0
         filled: 0
         obj: {fileID: 0}
-      - type: 0
+      - type: 2
         filled: 0
         obj: {fileID: 0}
       - type: 1
         filled: 0
         obj: {fileID: 0}
-      - type: 2
+      - type: 5
         filled: 0
         obj: {fileID: 0}
     - tile:
       - type: 1
         filled: 0
         obj: {fileID: 0}
+      - type: 0
+        filled: 0
+        obj: {fileID: 0}
+      - type: 0
+        filled: 0
+        obj: {fileID: 0}
       - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 3
+        filled: 0
+        obj: {fileID: 0}
+    - tile:
+      - type: 2
+        filled: 0
+        obj: {fileID: 0}
+      - type: 3
         filled: 0
         obj: {fileID: 0}
       - type: 1
@@ -142,12 +174,6 @@ MonoBehaviour:
         filled: 0
         obj: {fileID: 0}
     - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 2
-        filled: 0
-        obj: {fileID: 0}
       - type: 2
         filled: 0
         obj: {fileID: 0}
@@ -155,13 +181,19 @@ MonoBehaviour:
         filled: 0
         obj: {fileID: 0}
       - type: 0
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
+        filled: 0
+        obj: {fileID: 0}
+      - type: 1
         filled: 0
         obj: {fileID: 0}
     - tile:
       - type: 0
         filled: 0
         obj: {fileID: 0}
-      - type: 1
+      - type: 0
         filled: 0
         obj: {fileID: 0}
       - type: 4
@@ -177,51 +209,6 @@ MonoBehaviour:
       - type: 4
         filled: 0
         obj: {fileID: 0}
-      - type: 1
-        filled: 0
-        obj: {fileID: 0}
-      - type: 2
-        filled: 0
-        obj: {fileID: 0}
-      - type: 2
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-    - tile:
-      - type: 3
-        filled: 0
-        obj: {fileID: 0}
-      - type: 3
-        filled: 0
-        obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 2
-        filled: 0
-        obj: {fileID: 0}
-      - type: 3
-        filled: 0
-        obj: {fileID: 0}
-    - tile:
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-      - type: 2
-        filled: 0
-        obj: {fileID: 0}
-      - type: 4
-        filled: 0
-        obj: {fileID: 0}
-      - type: 2
-        filled: 0
-        obj: {fileID: 0}
-      - type: 5
-        filled: 0
-        obj: {fileID: 0}
-    - tile:
       - type: 3
         filled: 0
         obj: {fileID: 0}
@@ -234,8 +221,6 @@ MonoBehaviour:
       - type: 0
         filled: 0
         obj: {fileID: 0}
-      - type: 0
-        filled: 0
-        obj: {fileID: 0}
-  mobText_jp: "1\u30EC\u30FC\u30F3\u306E4\u30D4\u30FC\u30B9\u3092\u3069\u3046\u57CB\u3081\u308B\u304B\u304C\u30AB\u30AE\u3060\u306D\uFF0E\uFF0E\uFF0E"
-  mobText_en: The key is how to fill the four pieces in one lane
+  mobText_jp: "\u30BF\u30FC\u30F3\u6570\u306B\u3088\u308B\u30DC\u30FC\u30CA\u30B9\u306F\u306A\u3044\u306E\u3067\uFF0C\u3067\u304D\u308B\u3060\u3051\u53F3\u30EC\u30FC\u30F3\u304B\u3089\u57CB\u3081\u3089\u308C\u308B\u624B\u9806\u3092\u8003\u3048\u3088\u3046\uFF01"
+  mobText_en: "There is no bonus based on the number of turns\uFF0C so lets consider
+    a procedure to fill from the right lane as much as possible"

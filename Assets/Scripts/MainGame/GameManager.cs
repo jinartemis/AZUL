@@ -87,6 +87,7 @@ public partial class GameManager : MonoBehaviour
     private GameObject failedPanel;
 
     private Button nextStageButton;
+    private Button clearRetryButton;
     private Button retryButton;
     private GameObject loadingPanel;
     private Text failedTalkLabel;
@@ -113,6 +114,12 @@ public partial class GameManager : MonoBehaviour
     "出現回数が少ないタイルは優先してはめよう！" ,
     "おしい！もう一回やったらいけるかも？"};
 
+    private string[] failedTalk_EN = new string[] {
+    "Look at the tiles that come out next！" ,
+    "Tap Next to display a list of all tiles! Let's utilize it!" ,
+    "Let's give priority to tiles that appear less frequently!" ,
+    "I'm sorry! Could I do it again?"};
+
     [SerializeField, Header("クラッシュ時表示スキップパネル")]
     private GameObject skipPanel = default;
 
@@ -134,6 +141,8 @@ public partial class GameManager : MonoBehaviour
     [SerializeField]
     private State state;
 
+    [SerializeField, Header("TapText")]
+    private Text tapText = default;
 
     private void Awake()
     {
@@ -163,7 +172,13 @@ public partial class GameManager : MonoBehaviour
         AdManager.instance.RequestBanner(true);
 
         //BGM
-        SoundManager.instance.PlayBGM(SoundData.BGM.Game);
+        if (gameData.nowStageNumber < 10) { SoundManager.instance.PlayBGM(SoundData.BGM.Game0); }
+        else if (gameData.nowStageNumber < 20) { SoundManager.instance.PlayBGM(SoundData.BGM.Game1); }
+        else{ SoundManager.instance.PlayBGM(SoundData.BGM.Game2); }
+
+
+        //TapTextを初回ステージのみ表示
+        tapText.gameObject.SetActive(gameData.nowStageNumber == 0);
     }
 
     void Init()
@@ -184,6 +199,7 @@ public partial class GameManager : MonoBehaviour
         clearPanel = Find(HierarchyPath_Game.UICanvas._resultPanel_ClearPanel).gameObject;
         failedPanel = Find(HierarchyPath_Game.UICanvas._resultPanel_FailedPanel).gameObject;
         nextStageButton = Find(HierarchyPath_Game.UICanvas._resultPanel_ClearPanel_NextStageButton).AddComponent<Button>();
+        clearRetryButton = Find(HierarchyPath_Game.UICanvas._resultPanel_ClearPanel_RetryButton).AddComponent<Button>();
         retryButton = Find(HierarchyPath_Game.UICanvas._resultPanel_FailedPanel_RetryButton).AddComponent<Button>();
         loadingPanel = Find(HierarchyPath_Game.UICanvas._LoadingPanel).gameObject;
         failedTalkLabel = Find(HierarchyPath_Game.UICanvas._resultPanel_FailedPanel_FailedHukidashi_FailedTalkLabel).GetComponent<Text>();
@@ -218,6 +234,8 @@ public partial class GameManager : MonoBehaviour
         //ボタン設定
         nextStageButton.onClick.RemoveAllListeners();
         nextStageButton.onClick.AddListener(() => { GoNextStage(); });
+        clearRetryButton.onClick.RemoveAllListeners();
+        clearRetryButton.onClick.AddListener(() => { RetryStage(); });
         retryButton.onClick.RemoveAllListeners();
         retryButton.onClick.AddListener(() => { RetryStage(); });
 
@@ -275,6 +293,14 @@ public partial class GameManager : MonoBehaviour
         }
     }
 
+    IEnumerator ChangeTapText()
+    {
+        tapText.text = "Nice!";
+        tapText.GetComponent<BlinkText>().SetColor(Color.cyan);
+        yield return new WaitForSeconds(2.0f);
+        tapText.gameObject.SetActive(false);
+    }
+
     //シートにある各タイルボタン　
     void TileButton(int laneNum, int tileNum)
     {
@@ -282,6 +308,8 @@ public partial class GameManager : MonoBehaviour
         {
             return;
         }
+        //初回のみのTapTextを消す
+        if (tapText.gameObject.activeSelf == true) { StartCoroutine(ChangeTapText()); }
 
         Debug.Log(string.Format("TileButton lane:{0} tile:{1}", laneNum, tileNum));
         //押されたタイルバックボタンのタイルタイプと一致するタイルタイプをプールで検索する
@@ -434,6 +462,8 @@ public partial class GameManager : MonoBehaviour
             yield break;
         }
 
+        StartCoroutine(GoNextWave());
+        /*
         //次のウェーブがあるかどうか
         if(stageData.GetStageData().pool.Length-1 <= gameData.nowWaveNumber)
         {
@@ -450,9 +480,31 @@ public partial class GameManager : MonoBehaviour
             yield return new WaitForSeconds(.5f);
             StartCoroutine(MakePoolTiles(gameData.nowWaveNumber));
         }
+        */
     }
 
+    private IEnumerator GoNextWave()
+    {
+        //次のウェーブがあるかどうか
+        if (stageData.GetStageData().pool.Length - 1 <= gameData.nowWaveNumber)
+        {
+            //ゲームオーバー
+            Debug.LogError("ゲームオーバー！");
+            state = State.Result;
+            SoundManager.instance.PlayBGM(SoundData.BGM.Failed);
+            ShowResultPanel(clear: false);
+        }
+        else
+        {
+            //次のプールタイルを生成する
+            gameData.nowWaveNumber++;
+            yield return new WaitForSeconds(.5f);
+            StartCoroutine(MakePoolTiles(gameData.nowWaveNumber));
+        }
+    }
 
+    [SerializeField, Header("thankyoupanel")]
+    private GameObject thankYouPanel = default;
     [SerializeField, Header("クリアパネルを表示するまでの時間")]
     private float delayForShowClear = 1.5f;
     private IEnumerator StageClear()
@@ -460,7 +512,7 @@ public partial class GameManager : MonoBehaviour
         yield return new WaitForSeconds(delayForShowClear);
 
         state = State.Result;
-        SoundManager.instance.PlayBGM(SoundData.BGM.Clear);
+        //SoundManager.instance.PlayBGM(SoundData.BGM.Clear);
         ShowResultPanel(clear: true);
         //最新ステージ番号更新
         var allStageCount = masterDataManager.GetAllStageCount();
@@ -472,12 +524,25 @@ public partial class GameManager : MonoBehaviour
             //NextStageボタンを無効にする
             nextStageButton.enabled = false;
             nextStageButton.image.color = Color.gray;
+
+            StartCoroutine(ShowThankYouPanel());
         }
         else
         {
             int nextStage = nowStage + 1;
-            PlayerPrefs.SetInt(Define.NEW_STAGE_KEY, nextStage);
+            int cacheNextStage = PlayerPrefs.GetInt(Define.NEW_STAGE_KEY, 0);
+            //最深ステージ記録更新
+            if(nextStage > cacheNextStage)
+            {
+                PlayerPrefs.SetInt(Define.NEW_STAGE_KEY, nextStage);
+            }
         }
+    }
+
+    private IEnumerator ShowThankYouPanel()
+    {
+        yield return new WaitForSeconds(2.0f);
+        thankYouPanel.SetActive(true);
     }
 
     //リザルト表示
@@ -501,7 +566,39 @@ public partial class GameManager : MonoBehaviour
             {
                 //★表示
                 clearUI.stars[i].color = (i < starCount) ? Color.white : Color.gray;
+                if (i < starCount)
+                {
+                    Sequence seq =  DOTween.Sequence();
+                    seq.Append(clearUI.stars[i].transform.DOShakeRotation(1.0f)).Join(clearUI.stars[i].transform.DOShakeScale(1.0f));
+                    seq.Play();
+                }
             }
+
+            //Judge
+            switch (starCount)
+            {
+                case 3:
+                    {
+                        clearUI.judgeLabel.text = "Excellent!!";
+                        SoundManager.instance.PlayBGM(SoundData.BGM.Clear2);
+                    }
+                    break;
+
+                case 2:
+                    {
+                        clearUI.judgeLabel.text = "Very Nice!";
+                        SoundManager.instance.PlayBGM(SoundData.BGM.Clear1);
+                    }
+                    break;
+
+                default:
+                    {
+                        clearUI.judgeLabel.text = "Good!";
+                        SoundManager.instance.PlayBGM(SoundData.BGM.Clear0);
+                    }
+                    break;
+            }
+
 
             //スコア
             clearUI.newRecordLabel.gameObject.SetActive(nowScore > hightScore);
@@ -510,9 +607,11 @@ public partial class GameManager : MonoBehaviour
                 //ハイスコア更新
                 hightScore = nowScore;
                 PlayerPrefs.SetInt(string.Format(Define.HIGH_SCORE_FORMAT_KEY, nowStageNumber), hightScore);
+                //SE
+                SoundManager.instance.PlaySE(SoundData.SE.NewRecord);
             }
-            clearUI.scoreValueLabel.text = nowScore.ToString("D8");
-            clearUI.highScoreValueLabel.text = hightScore.ToString("D8");
+            clearUI.scoreValueLabel.text = nowScore.ToString(Define.scoreFormat);
+            clearUI.highScoreValueLabel.text = hightScore.ToString(Define.scoreFormat);
             //完成図表記////////////////////////////////////////////////////////////////////////////////////////////////////////////
             //stageData.sheet[0].lane[0].
             for (int i = 0; i < stageData.GetStageData().sheet[sheetNum].lane.Length; i++)
@@ -533,7 +632,9 @@ public partial class GameManager : MonoBehaviour
         else
         {
             //失敗
-            failedTalkLabel.text = failedTalk_JP[Random.Range(0, failedTalk_JP.Length)];
+            failedTalkLabel.text = (Application.systemLanguage == SystemLanguage.Japanese)
+                ? failedTalk_JP[Random.Range(0, failedTalk_JP.Length)]
+                : failedTalk_EN[Random.Range(0, failedTalk_EN.Length)];
         }
 
         resultPanel.SetActive(true);
@@ -704,10 +805,9 @@ public partial class GameManager : MonoBehaviour
         }
 
         skipPanel.SetActive(false);
-        //次のプールを用意
-        gameData.nowWaveNumber++;
-        yield return new WaitForSeconds(.5f);
-        StartCoroutine(MakePoolTiles(gameData.nowWaveNumber));
+
+        //次のプールへ
+        StartCoroutine(GoNextWave());
     }
 
     public void ShowPoolListPanel(bool show)
@@ -790,11 +890,14 @@ public partial class GameManager : MonoBehaviour
 
     [SerializeField]
     private GameObject settingPanel = default;
+    [SerializeField, Header("SettingPanelStageLabel")]
+    private Text settingPanelStageLabel = default;
     public void ShowSettingPanel(bool show)
     {
         //SE
         if (show == true) { SoundManager.instance.PlaySE(SoundData.SE.Select); }
         else { SoundManager.instance.PlaySE(SoundData.SE.Cansel); }
+        settingPanelStageLabel.text = $"Stage{ gameData.nowStageNumber+1}";
         settingPanel.SetActive(show);
     }
 }

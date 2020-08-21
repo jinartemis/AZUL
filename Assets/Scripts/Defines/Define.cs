@@ -68,4 +68,7 @@ public partial class Define
     public const string NEW_STAGE_KEY = "NEW_STAGE_KEY";
     //ハイスコア
     public const string HIGH_SCORE_FORMAT_KEY = "HIGH_SCORE_STAGE{0}";
+
+    //スコア表記フォーマット
+    public static readonly string scoreFormat = "D5";
 }

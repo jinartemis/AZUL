@@ -22,4 +22,23 @@ public class ResultManager : MonoBehaviour
         SceneManager.LoadScene("Home");
     }
 
+    public void JumpToWeb()
+    {
+#if UNITY_ANDROID
+            string url = "";
+            if( Application.systemLanguage = SystemLanguage.Japanese)
+            {
+                url = "https://play.google.com/store/apps/developer?id=Reo+Games&hl=jp_JP";
+            }
+            else
+            {
+			    url = "https://play.google.com/store/apps/developer?id=Reo+Games&hl=en_US";
+            }
+			Application.OpenURL(url);
+#elif UNITY_IPHONE
+        string url = "https://itunes.apple.com/jp/developer/reo-komura/id1353284945";
+        Application.OpenURL(url);
+#else
+#endif
+    }
 }

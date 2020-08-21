@@ -117,7 +117,7 @@ namespace ReoGames
                 var sData = data.GetStageData();
                 questLabel.text = $"Stage{stageNumber+1}";// sData.stageName;
                 int highScore = PlayerPrefs.GetInt(string.Format(Define.HIGH_SCORE_FORMAT_KEY, stageNumber), 0);
-                highScoreLabel.text = highScore.ToString("D8");
+                highScoreLabel.text = highScore.ToString(Define.scoreFormat);
                 mobImage.sprite = mobSprite[stageNumber % 2];
                 serihuLabel.text = (Application.systemLanguage == SystemLanguage.Japanese) ? data.mobText_jp : data.mobText_en;
                 int star3Score = sData.star3_score;

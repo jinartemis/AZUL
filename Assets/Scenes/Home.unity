@@ -8119,12 +8119,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835e0d46e2b1c42b7a84a2dc90c6eccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jp: "<\u30C7\u30B6\u30A4\u30F3>\nLin\nsatoru\n\n<\u4F01\u753B\u30FB\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC>\nReo\n\nReoGames"
+  jp: "<\u30C7\u30B6\u30A4\u30F3>\nLin\nsatoru\n\n<\u97F3\u697D>\nontama-m.com\n\n<\u4F01\u753B\u30FB\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC>\nReo\n\nReoGames"
   en: '<Design>
 
     Lin
 
     satoru
+
+
+    <Music>
+
+    ontama-m.com
 
 
     <Planner,Programmer>
@@ -8165,7 +8170,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<\u30C7\u30B6\u30A4\u30F3>\nLin\nsatoru\n\n<\u4F01\u753B\u30FB\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC>\nReo\n\nReoGames\n"
+  m_Text: "<\u30C7\u30B6\u30A4\u30F3>\nLin\nsatoru\n\n<\u97F3\u697D>\nontama-m.com\n\n<\u4F01\u753B\u30FB\u30D7\u30ED\u30B0\u30E9\u30DE\u30FC>\nReo\n\nReoGames\n"
 --- !u!222 &1699937416
 CanvasRenderer:
   m_ObjectHideFlags: 0
