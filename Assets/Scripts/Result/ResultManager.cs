@@ -26,7 +26,7 @@ public class ResultManager : MonoBehaviour
     {
 #if UNITY_ANDROID
             string url = "";
-            if( Application.systemLanguage = SystemLanguage.Japanese)
+            if( Application.systemLanguage == SystemLanguage.Japanese)
             {
                 url = "https://play.google.com/store/apps/developer?id=Reo+Games&hl=jp_JP";
             }

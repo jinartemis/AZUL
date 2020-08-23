@@ -37,14 +37,16 @@ public class AdManager : MonoBehaviour
     public void Start()
     {
 #if UNITY_ANDROID
-        string appId = "ca-app-pub-3940256099942544~3347511713";            //Debug////////////////////////
+        string appId = "ca-app-pub-5149152859962532~4825527754";
+        //"ca-app-pub-3940256099942544~3347511713";            //Debug////////////////////////
 #elif UNITY_IPHONE
-        string appId =  "ca-app-pub-3940256099942544~1458002511";           //Debug////////////////////////
+        string appId =  "ca-app-pub-5149152859962532~6209640118";
+        //"ca-app-pub-3940256099942544~1458002511";           //Debug////////////////////////
 #else
             string appId = "unexpected_platform";
 #endif
 
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         // Initialize the Google Mobile Ads SDK.
         MobileAds.Initialize(appId);
 #endif
@@ -74,9 +76,11 @@ public class AdManager : MonoBehaviour
         Debug.Log("バナー設定");
 
 #if UNITY_ANDROID
-        string adUnitId = "ca-app-pub-3940256099942544/6300978111";     //Debug////////////////////////////////////////////////
+        string adUnitId = "ca-app-pub-5149152859962532/3032498111";
+       // string adUnitId = "ca-app-pub-3940256099942544/6300978111";     //Debug////////////////////////////////////////////////
 #elif UNITY_IPHONE
-        string adUnitId =  "ca-app-pub-3940256099942544/2934735716";    //Debug////////////////////////////////////////////////
+        string adUnitId = "ca-app-pub-5149152859962532/4173384154";
+       // "ca-app-pub-3940256099942544/2934735716";    //Debug////////////////////////////////////////////////
 #else
             string adUnitId = "unexpected_platform";
 #endif

@@ -7,9 +7,11 @@ using System.Linq;
 using static UnityEngine.GameObject;
 using Reo;
 using ReoGames;
+using System.Security.Cryptography;
 
 public partial class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
 
     [SerializeField, Header("ステージ情報 実行時取得")]
     private StageData stageData;
@@ -146,6 +148,15 @@ public partial class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+
         Init();
 
         LoadUI();
@@ -179,6 +190,8 @@ public partial class GameManager : MonoBehaviour
 
         //TapTextを初回ステージのみ表示
         tapText.gameObject.SetActive(gameData.nowStageNumber == 0);
+        //チュートリアル　
+        if(gameData.nowStageNumber == 0) { ShowTutorialPanel(true); }
     }
 
     void Init()
@@ -899,6 +912,13 @@ public partial class GameManager : MonoBehaviour
         else { SoundManager.instance.PlaySE(SoundData.SE.Cansel); }
         settingPanelStageLabel.text = $"Stage{ gameData.nowStageNumber+1}";
         settingPanel.SetActive(show);
+    }
+
+    [SerializeField, Header("チュートリアルパネル")]
+    private GameObject tutorialPanel = default;
+    public void ShowTutorialPanel(bool show)
+    {
+        tutorialPanel.SetActive(show);
     }
 }
 

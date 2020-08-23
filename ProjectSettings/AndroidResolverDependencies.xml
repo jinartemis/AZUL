@@ -1,6 +1,6 @@
 <dependencies>
   <packages>
-    <package>com.google.android.gms:play-services-ads:19.0.0</package>
+    <package>com.google.android.gms:play-services-ads:19.3.0</package>
   </packages>
   <files>
     <file>Assets/Plugins/Android/androidx.annotation.annotation-1.0.0.jar</file>
@@ -31,12 +31,12 @@
     <file>Assets/Plugins/Android/androidx.swiperefreshlayout.swiperefreshlayout-1.0.0.aar</file>
     <file>Assets/Plugins/Android/androidx.versionedparcelable.versionedparcelable-1.0.0.aar</file>
     <file>Assets/Plugins/Android/androidx.viewpager.viewpager-1.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-19.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-base-19.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-19.3.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-base-19.3.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-identifier-17.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-lite-19.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-ads-lite-19.3.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-basement-17.0.0.aar</file>
-    <file>Assets/Plugins/Android/com.google.android.gms.play-services-gass-19.0.0.aar</file>
+    <file>Assets/Plugins/Android/com.google.android.gms.play-services-gass-19.3.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-measurement-base-17.1.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-measurement-sdk-api-17.1.0.aar</file>
     <file>Assets/Plugins/Android/com.google.android.gms.play-services-tasks-17.0.0.aar</file>
